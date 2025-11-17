@@ -1,0 +1,76 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "About Us",
+    "team": "Team",
+    "services": "Services",
+    "cases": "Cases",
+    "contact": "Contact",
+    "requestSample": "Request Sample",
+    "switchLanguage": "Switch Language",
+    "switchToEnglish": "Switch to Chinese"
+  },
+  "hero": {
+    "learnMore": "Learn More About Our Services",
+    "contactUs": "Contact Us"
+  },
+  "focusAreas": {
+    "badge": "Core Service Areas",
+    "title": "Our",
+    "titleHighlight": "Focus Areas",
+    "subtitle": "Committed to providing precise intelligent solutions for the following key areas, addressing actual needs and challenges in their work"
+  },
+  "about": {
+    "badge": "About New Shi Long",
+    "title": "Focus on",
+    "titleHighlight": "Premium Agricultural Product Standardization & Intelligence",
+    "coreGoal": "Core Mission",
+    "vision": "Vision"
+  },
+  "advantages": {
+    "badge": "Core Competitiveness",
+    "title": "Why Choose",
+    "titleHighlight": "New Shi Long"
+  },
+  "team": {
+    "badge": "Core Team",
+    "title": "Meet Our",
+    "titleHighlight": "Expert Team"
+  },
+  "cases": {
+    "badge": "Success Cases",
+    "title": "Real Scenarios",
+    "titleHighlight": "of Intelligent Implementation",
+    "subtitle": "Deep integration of AI technology and industry knowledge, creating tangible business value for customers",
+    "technologies": "Core Technologies",
+    "painPoint": "Pain Point: ",
+    "features": "Core Features",
+    "outcome": "Project Results"
+  },
+  "contact": {
+    "badge": "Contact Us",
+    "title": "Start Your",
+    "titleHighlight": "Digital Transformation",
+    "titleSuffix": "Journey",
+    "subtitle": "Looking forward to deep integration with various industries, collaborating towards a new future",
+    "phone": "Phone",
+    "email": "Email",
+    "address": "Address",
+    "cta": "Schedule Consultation",
+    "values": "Our Core Values",
+    "advisors": "Industry Expert Advisors"
+  },
+  "footer": {
+    "quickLinks": "Quick Links",
+    "contactInfo": "Contact Information",
+    "about": "About Us",
+    "team": "Core Team",
+    "services": "Services",
+    "cases": "Success Cases",
+    "contact": "Contact Us",
+    "allRightsReserved": "All rights reserved.",
+    "foundedIn": "Founded in",
+    "focusOn": "Focus on AI Digital Transformation"
+  }
+}
+

@@ -45,9 +45,12 @@ import {
 } from "lucide-react";
 import companyDataZh from "@/data/companyData.json";
 import companyDataEn from "@/data/companyData.en.json";
+import uiTextZh from "@/data/uiText.json";
+import uiTextEn from "@/data/uiText.en.json";
 
 // 定义类型
 type CompanyData = typeof companyDataZh;
+type UIText = typeof uiTextZh;
 
 // 图标映射
 const iconMap = {
@@ -102,17 +105,17 @@ const SCXSLLogo = memo(({ className = "w-12 h-12" }: { className?: string }) => 
 SCXSLLogo.displayName = "SCXSLLogo";
 
 // 导航栏组件
-const Navigation = memo(() => {
+const Navigation = memo(({ uiText }: { uiText: UIText }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const { language, toggleLanguage, t } = useLanguage();
+  const { language, toggleLanguage } = useLanguage();
 
   const navItems = [
-    { label: t("首页", "Home"), href: "#home" },
-    { label: t("关于SCXSL", "About"), href: "#about" },
-    { label: t("核心团队", "Team"), href: "#team" },
-    { label: t("优势与服务", "Services"), href: "#services" },
-    { label: t("成功案例", "Cases"), href: "#cases" },
-    { label: t("联系我们", "Contact"), href: "#contact" },
+    { label: uiText.navigation.home, href: "#home" },
+    { label: uiText.navigation.about, href: "#about" },
+    { label: uiText.navigation.team, href: "#team" },
+    { label: uiText.navigation.services, href: "#services" },
+    { label: uiText.navigation.cases, href: "#cases" },
+    { label: uiText.navigation.contact, href: "#contact" },
   ];
 
   return (
@@ -129,9 +132,8 @@ const Navigation = memo(() => {
             {/* Logo 文字 */}
             <div className="relative">
               <h1 className="text-2xl font-black tracking-tight bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent">
-                SCXSL
+                New Shi Long
               </h1>
-              <p className="text-xs text-gray-600 hidden md:block font-semibold tracking-wide">数创先锋</p>
               {/* 底部装饰线 */}
               <div className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-blue-400 group-hover:w-full transition-all duration-300" />
             </div>
@@ -211,7 +213,9 @@ const Navigation = memo(() => {
 Navigation.displayName = "Navigation";
 
 // Hero Section
-const HeroSection = memo(({ companyData }: { companyData: CompanyData }) => (
+const HeroSection = memo(({ companyData, uiText }: { companyData: CompanyData; uiText: UIText }) => {
+  const { language } = useLanguage();
+  return (
   <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 bg-gradient-to-br from-green-50 via-white to-blue-50">
     {/* 科技感背景装饰 */}
     <div className="absolute inset-0 tech-grid opacity-50" />
@@ -229,7 +233,7 @@ const HeroSection = memo(({ companyData }: { companyData: CompanyData }) => (
     <div className="relative z-10 container mx-auto max-w-7xl px-4 text-center">
       <motion.div {...fadeInUp}>
         <p className="mb-8 text-green-600 font-bold text-lg md:text-xl">
-          {companyData.companyInfo.founded && `成立于 ${companyData.companyInfo.founded} · `}{companyData.companyInfo.tagline || "创新科技领航者"}
+          {companyData.companyInfo.founded && `${language === 'zh' ? '成立于' : 'Founded in'} ${companyData.companyInfo.founded} · `}{companyData.companyInfo.tagline}
         </p>
         
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight tech-title">
@@ -237,7 +241,7 @@ const HeroSection = memo(({ companyData }: { companyData: CompanyData }) => (
         </h1>
         
         <p className="text-xl md:text-2xl text-gray-800 mb-6 max-w-3xl mx-auto font-semibold leading-relaxed">
-          {companyData.companyInfo.name}专注于{companyData.companyInfo.focus || "创新科技解决方案"}
+          {companyData.companyInfo.name}{language === 'zh' ? '专注于' : ' focuses on '}{companyData.companyInfo.focus}
         </p>
         
         <p className="text-lg md:text-xl text-gray-700 mb-10 max-w-2xl mx-auto font-medium leading-relaxed">
@@ -246,12 +250,12 @@ const HeroSection = memo(({ companyData }: { companyData: CompanyData }) => (
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Button size="lg" className="tech-button gradient-primary text-white shadow-xl hover:shadow-2xl transition-all px-8 py-6 text-lg">
-            了解更多我们的服务
+            {uiText.hero.learnMore}
             <ArrowRight className="ml-2 w-5 h-5" />
           </Button>
           <Button size="lg" variant="outline" className="tech-button border-2 border-purple-600 text-purple-600 hover:bg-purple-50 px-8 py-6 text-lg">
             <Phone className="mr-2 w-5 h-5" />
-            联系我们
+            {uiText.hero.contactUs}
           </Button>
         </div>
       </motion.div>
@@ -262,21 +266,22 @@ const HeroSection = memo(({ companyData }: { companyData: CompanyData }) => (
       <ChevronRight className="w-6 h-6 text-gray-400 rotate-90" />
     </div>
   </section>
-));
+  );
+});
 HeroSection.displayName = "HeroSection";
 
 // Focus Areas Section
-const FocusAreasSection = memo(({ companyData }: { companyData: CompanyData }) => (
+const FocusAreasSection = memo(({ companyData, uiText }: { companyData: CompanyData; uiText: UIText }) => (
   <Section className="bg-gradient-to-b from-white to-green-50">
     <motion.div {...fadeInUp} className="text-center mb-16">
       <Badge className="mb-4 gradient-secondary text-white border-0 shadow-md">
-        核心服务板块
+        {uiText.focusAreas.badge}
       </Badge>
       <h2 className="text-3xl md:text-5xl font-bold mb-6 tech-title">
-        我们的<span className="gradient-text">焦点领域</span>
+        {uiText.focusAreas.title}<span className="gradient-text">{uiText.focusAreas.titleHighlight}</span>
       </h2>
       <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto font-medium leading-relaxed">
-        致力于为以下关键领域提供精准的智能化解决方案，应对其工作中的实际需求和挑战
+        {uiText.focusAreas.subtitle}
       </p>
     </motion.div>
 
@@ -318,15 +323,15 @@ const FocusAreasSection = memo(({ companyData }: { companyData: CompanyData }) =
 FocusAreasSection.displayName = "FocusAreasSection";
 
 // About Section
-const AboutSection = memo(({ companyData }: { companyData: CompanyData }) => (
+const AboutSection = memo(({ companyData, uiText }: { companyData: CompanyData; uiText: UIText }) => (
   <Section id="about" className="bg-white">
     <div className="max-w-4xl mx-auto">
       <motion.div {...fadeInUp} className="text-center">
         <Badge className="mb-4 gradient-primary text-white border-0 shadow-md">
-          关于 SCXSL
+          {uiText.about.badge}
         </Badge>
         <h2 className="text-3xl md:text-5xl font-bold mb-6">
-          专注<span className="gradient-text">{companyData.companyInfo.focus || "创新科技"}</span>
+          {uiText.about.title}<span className="gradient-text">{companyData.companyInfo.focus}</span>
         </h2>
         <div className="space-y-6 text-gray-800 leading-relaxed text-left text-xl font-medium">
           {companyData.aboutUs.intro.map((paragraph, index) => (
@@ -338,14 +343,14 @@ const AboutSection = memo(({ companyData }: { companyData: CompanyData }) => (
           <div className="flex items-start space-x-4 text-left">
             <CheckCircle2 className="w-7 h-7 text-green-600 flex-shrink-0 mt-1" />
             <div>
-              <h4 className="font-bold text-gray-900 mb-2 text-lg">核心目标</h4>
+              <h4 className="font-bold text-gray-900 mb-2 text-lg">{uiText.about.coreGoal}</h4>
               <p className="text-gray-800 font-medium text-base leading-relaxed">{companyData.aboutUs.mission}</p>
             </div>
           </div>
           <div className="flex items-start space-x-4 text-left">
             <Target className="w-7 h-7 text-blue-600 flex-shrink-0 mt-1" />
             <div>
-              <h4 className="font-bold text-gray-900 mb-2 text-lg">企业愿景</h4>
+              <h4 className="font-bold text-gray-900 mb-2 text-lg">{uiText.about.vision}</h4>
               <p className="text-gray-800 font-medium text-base leading-relaxed">{companyData.aboutUs.vision}</p>
             </div>
           </div>
@@ -357,14 +362,14 @@ const AboutSection = memo(({ companyData }: { companyData: CompanyData }) => (
 AboutSection.displayName = "AboutSection";
 
 // Core Advantages Section
-const AdvantagesSection = memo(({ companyData }: { companyData: CompanyData }) => (
+const AdvantagesSection = memo(({ companyData, uiText }: { companyData: CompanyData; uiText: UIText }) => (
   <Section className="bg-gradient-to-b from-green-50 to-white">
     <motion.div {...fadeInUp} className="text-center mb-16">
       <Badge className="mb-4 gradient-accent text-white border-0 shadow-md">
-        核心竞争力
+        {uiText.advantages.badge}
       </Badge>
       <h2 className="text-3xl md:text-5xl font-bold mb-6">
-        为什么选择<span className="gradient-text">SCXSL</span>？
+        {uiText.advantages.title}<span className="gradient-text">{uiText.advantages.titleHighlight}</span>
       </h2>
     </motion.div>
 
@@ -408,14 +413,14 @@ const AdvantagesSection = memo(({ companyData }: { companyData: CompanyData }) =
 AdvantagesSection.displayName = "AdvantagesSection";
 
 // Team Section
-const TeamSection = memo(({ companyData }: { companyData: CompanyData }) => (
+const TeamSection = memo(({ companyData, uiText }: { companyData: CompanyData; uiText: UIText }) => (
   <Section id="team" className="bg-white">
     <motion.div {...fadeInUp} className="text-center mb-16">
       <Badge className="mb-4 gradient-primary text-white border-0 shadow-md">
-        核心团队
+        {uiText.team.badge}
       </Badge>
       <h2 className="text-3xl md:text-5xl font-bold mb-6">
-        认识我们的<span className="gradient-text">专家团队</span>
+        {uiText.team.title}<span className="gradient-text">{uiText.team.titleHighlight}</span>
       </h2>
       <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto font-medium leading-relaxed">
         {companyData.team.intro}
@@ -462,17 +467,17 @@ const TeamSection = memo(({ companyData }: { companyData: CompanyData }) => (
 TeamSection.displayName = "TeamSection";
 
 // Case Studies Section
-const CaseStudiesSection = memo(({ companyData }: { companyData: CompanyData }) => (
+const CaseStudiesSection = memo(({ companyData, uiText }: { companyData: CompanyData; uiText: UIText }) => (
   <Section id="cases" className="bg-gradient-to-b from-white to-green-50">
     <motion.div {...fadeInUp} className="text-center mb-16">
       <Badge className="mb-4 gradient-secondary text-white border-0 shadow-md">
-        成功案例
+        {uiText.cases.badge}
       </Badge>
       <h2 className="text-3xl md:text-5xl font-bold mb-6">
-        <span className="gradient-text">真实场景</span>的智能化落地
+        <span className="gradient-text">{uiText.cases.title}</span>{uiText.cases.titleHighlight}
       </h2>
       <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto font-medium leading-relaxed">
-        深度融合 AI 技术与行业知识，为客户创造切实的商业价值
+        {uiText.cases.subtitle}
       </p>
     </motion.div>
 
@@ -576,17 +581,17 @@ const CaseStudiesSection = memo(({ companyData }: { companyData: CompanyData }) 
 CaseStudiesSection.displayName = "CaseStudiesSection";
 
 // Contact Section
-const ContactSection = memo(({ companyData }: { companyData: CompanyData }) => (
+const ContactSection = memo(({ companyData, uiText }: { companyData: CompanyData; uiText: UIText }) => (
   <Section id="contact" className="bg-white">
     <motion.div {...fadeInUp} className="text-center mb-16">
       <Badge className="mb-4 gradient-primary text-white border-0 shadow-md">
-        联系我们
+        {uiText.contact.badge}
       </Badge>
       <h2 className="text-3xl md:text-5xl font-bold mb-6">
-        开启您的<span className="gradient-text">智能化转型</span>之旅
+        {uiText.contact.title}<span className="gradient-text">{uiText.contact.titleHighlight}</span>{uiText.contact.titleSuffix}
       </h2>
       <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto font-medium leading-relaxed">
-        期待与各行各业深度融合，协作走向新的未来
+        {uiText.contact.subtitle}
       </p>
     </motion.div>
 
@@ -652,7 +657,7 @@ const ContactSection = memo(({ companyData }: { companyData: CompanyData }) => (
 
       {/* Company Values */}
       <motion.div {...fadeInUp} transition={{ delay: 0.2 }}>
-        <h3 className="text-2xl font-bold mb-6">我们的核心价值观</h3>
+        <h3 className="text-2xl font-bold mb-6">{uiText.contact.values}</h3>
         <div className="space-y-4">
           {companyData.aboutUs.values.map((value, index) => (
             <Card key={index} className="border-2 border-gray-200 hover:border-green-300 hover:shadow-lg transition-all">
@@ -670,7 +675,7 @@ const ContactSection = memo(({ companyData }: { companyData: CompanyData }) => (
 
         <Card className="mt-6 bg-green-50 border-2 border-green-200">
           <CardContent className="pt-6">
-            <h4 className="font-semibold text-gray-900 mb-4">行业专家顾问</h4>
+            <h4 className="font-semibold text-gray-900 mb-4">{uiText.contact.advisors}</h4>
             <div className="space-y-2">
               <div className="flex items-center space-x-2">
                 <CheckCircle2 className="w-4 h-4 text-green-600" />
@@ -694,7 +699,7 @@ const ContactSection = memo(({ companyData }: { companyData: CompanyData }) => (
 ContactSection.displayName = "ContactSection";
 
 // Footer
-const Footer = memo(({ companyData }: { companyData: CompanyData }) => (
+const Footer = memo(({ companyData, uiText }: { companyData: CompanyData; uiText: UIText }) => (
   <footer className="bg-gray-900 text-white py-12">
     <div className="container mx-auto max-w-7xl px-4">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
@@ -702,14 +707,13 @@ const Footer = memo(({ companyData }: { companyData: CompanyData }) => (
           <div className="flex items-center space-x-3 mb-4">
             <Image
               src="/scxsl-logo.png"
-              alt="SCXSL Logo"
+              alt="New Shi Long Logo"
               width={44}
               height={44}
               className="object-contain"
             />
             <div>
-              <h3 className="text-xl font-black tracking-tight">SCXSL</h3>
-              <p className="text-sm text-gray-400 font-medium">数创先锋</p>
+              <h3 className="text-xl font-black tracking-tight">New Shi Long</h3>
             </div>
           </div>
           <p className="text-gray-400 text-sm mb-4">
@@ -718,18 +722,18 @@ const Footer = memo(({ companyData }: { companyData: CompanyData }) => (
         </div>
 
         <div>
-          <h4 className="font-semibold mb-4">快速链接</h4>
+          <h4 className="font-semibold mb-4">{uiText.footer.quickLinks}</h4>
           <ul className="space-y-2 text-sm text-gray-400">
-            <li><a href="#about" className="hover:text-white transition-colors">关于我们</a></li>
-            <li><a href="#team" className="hover:text-white transition-colors">核心团队</a></li>
-            <li><a href="#services" className="hover:text-white transition-colors">服务领域</a></li>
-            <li><a href="#cases" className="hover:text-white transition-colors">成功案例</a></li>
-            <li><a href="#contact" className="hover:text-white transition-colors">联系我们</a></li>
+            <li><a href="#about" className="hover:text-white transition-colors">{uiText.footer.about}</a></li>
+            <li><a href="#team" className="hover:text-white transition-colors">{uiText.footer.team}</a></li>
+            <li><a href="#services" className="hover:text-white transition-colors">{uiText.footer.services}</a></li>
+            <li><a href="#cases" className="hover:text-white transition-colors">{uiText.footer.cases}</a></li>
+            <li><a href="#contact" className="hover:text-white transition-colors">{uiText.footer.contact}</a></li>
           </ul>
         </div>
 
         <div>
-          <h4 className="font-semibold mb-4">联系方式</h4>
+          <h4 className="font-semibold mb-4">{uiText.footer.contactInfo}</h4>
           <ul className="space-y-2 text-sm text-gray-400">
             <li className="flex items-center space-x-2">
               <Phone className="w-4 h-4" />
@@ -748,8 +752,8 @@ const Footer = memo(({ companyData }: { companyData: CompanyData }) => (
       </div>
 
       <div className="border-t border-gray-800 pt-8 text-center text-sm text-gray-400">
-        <p>© {new Date().getFullYear()} {companyData.companyInfo.name}. 保留所有权利。</p>
-        <p className="mt-2">成立于 {companyData.companyInfo.founded} · 专注 AI 智能化转型</p>
+        <p>© {new Date().getFullYear()} {companyData.companyInfo.name}. {uiText.footer.allRightsReserved}</p>
+        <p className="mt-2">{uiText.footer.foundedIn} {companyData.companyInfo.founded} · {uiText.footer.focusOn}</p>
       </div>
     </div>
   </footer>
@@ -760,22 +764,24 @@ Footer.displayName = "Footer";
 export default function HomePage() {
   const { language } = useLanguage();
   const [companyData, setCompanyData] = useState<CompanyData>(companyDataZh);
+  const [uiText, setUiText] = useState<UIText>(uiTextZh);
 
   useEffect(() => {
     setCompanyData(language === 'zh' ? companyDataZh : (companyDataEn as unknown as CompanyData));
+    setUiText(language === 'zh' ? uiTextZh : (uiTextEn as unknown as UIText));
   }, [language]);
 
   return (
     <main className="min-h-screen">
-      <Navigation />
-      <HeroSection companyData={companyData} />
-      <FocusAreasSection companyData={companyData} />
-      <AboutSection companyData={companyData} />
-      <AdvantagesSection companyData={companyData} />
-      <TeamSection companyData={companyData} />
-      <CaseStudiesSection companyData={companyData} />
-      <ContactSection companyData={companyData} />
-      <Footer companyData={companyData} />
+      <Navigation uiText={uiText} />
+      <HeroSection companyData={companyData} uiText={uiText} />
+      <FocusAreasSection companyData={companyData} uiText={uiText} />
+      <AboutSection companyData={companyData} uiText={uiText} />
+      <AdvantagesSection companyData={companyData} uiText={uiText} />
+      <TeamSection companyData={companyData} uiText={uiText} />
+      <CaseStudiesSection companyData={companyData} uiText={uiText} />
+      <ContactSection companyData={companyData} uiText={uiText} />
+      <Footer companyData={companyData} uiText={uiText} />
     </main>
   );
 }
