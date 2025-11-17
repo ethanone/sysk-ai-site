@@ -14,6 +14,7 @@
 **新手必读：**
 - 🎯 [**配置指南**](./CONFIGURATION_GUIDE.md) - Logo/Favicon 配置、新项目快速上手
 - ⚡ [**快速参考**](./QUICK_REFERENCE.md) - 最关键的配置，一目了然
+- ✅ [**项目检查清单**](./PROJECT_CHECKLIST.md) - 部署前完整检查项
 - 🖼️ [**图片说明**](./public/images/README.md) - 图片资源使用指南
 
 **重点提示：**
