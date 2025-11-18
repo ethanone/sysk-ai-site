@@ -59,37 +59,52 @@ const iconMap = {
   Users, Target, Lightbulb,
 };
 
-// 动画配置
+// 优化的动画配置 - 更流畅自然
 const fadeInUp = {
-  initial: { opacity: 0, y: 30 },
+  initial: { opacity: 0, y: 24 },
   whileInView: { opacity: 1, y: 0 },
-  transition: { duration: 0.6 },
-  viewport: { once: true },
+  transition: { 
+    duration: 0.8,
+    ease: [0.16, 1, 0.3, 1] // 自定义缓动函数
+  },
+  viewport: { once: true, margin: "-100px" },
 };
 
 const staggerContainer = {
   animate: {
     transition: {
-      staggerChildren: 0.1,
+      staggerChildren: 0.08,
+      delayChildren: 0.1,
     },
   },
 };
 
-// 响应式 Section 组件
+// 优化的淡入动画
+const fadeIn = {
+  initial: { opacity: 0 },
+  whileInView: { opacity: 1 },
+  transition: { 
+    duration: 0.6,
+    ease: [0.16, 1, 0.3, 1]
+  },
+  viewport: { once: true },
+};
+
+// 响应式 Section 组件 - 参考 Supima 和 Foundry 的大留白设计，移动端优化
 const Section = memo(({ children, className = "", id }: {
   children: React.ReactNode;
   className?: string;
   id?: string;
 }) => (
-  <section id={id} className={`py-16 md:py-24 px-4 ${className}`}>
-    <div className="container mx-auto max-w-7xl">
+  <section id={id} className={`py-12 sm:py-16 md:py-24 lg:py-32 xl:py-40 px-4 sm:px-6 md:px-6 lg:px-8 ${className}`}>
+    <div className="container mx-auto max-w-6xl">
       {children}
     </div>
   </section>
 ));
 Section.displayName = "Section";
 
-// Logo 组件 - 使用真实的 SCXSL logo 图片
+// Logo 组件 - 使用真实的 SCXSL logo 图片，移动端优化
 const SCXSLLogo = memo(({ className = "w-12 h-12" }: { className?: string }) => (
   <div className={className}>
     <Image
@@ -99,6 +114,8 @@ const SCXSLLogo = memo(({ className = "w-12 h-12" }: { className?: string }) => 
       height={48}
       className="w-full h-full object-contain"
       priority
+      sizes="(max-width: 768px) 40px, 48px"
+      loading="eager"
     />
   </div>
 ));
@@ -119,96 +136,110 @@ const Navigation = memo(({ uiText }: { uiText: UIText }) => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl border-b border-gray-200/50 shadow-md">
-      <div className="container mx-auto max-w-7xl px-4">
-        <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo - 全新设计 */}
-          <a href="#home" className="flex items-center space-x-3 group">
-            {/* Logo 图标 */}
-            <div className="relative">
-              <SCXSLLogo className="w-12 h-12 transition-transform duration-300 group-hover:scale-110 group-hover:drop-shadow-lg" />
-            </div>
-            
-            {/* Logo 文字 */}
-            <div className="relative">
-              <h1 className="text-2xl font-black tracking-tight bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent">
-                New Shi Long
-              </h1>
-              {/* 底部装饰线 */}
-              <div className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-blue-400 group-hover:w-full transition-all duration-300" />
-            </div>
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 transition-all duration-300 supports-[backdrop-filter]:bg-white/80">
+      <div className="container mx-auto max-w-6xl px-4 md:px-6">
+        <div className="flex items-center justify-between h-16 md:h-20 lg:h-24">
+          {/* Logo - 参考 Supima 和 Foundry 的简洁设计 */}
+          <a 
+            href="#home" 
+            className="flex items-center space-x-3 group focus-visible:outline-2 focus-visible:outline-black focus-visible:outline-offset-2 rounded"
+            aria-label="返回首页"
+          >
+            <SCXSLLogo className="w-10 h-10 transition-opacity duration-300 group-hover:opacity-80 group-focus-visible:opacity-80" />
+            <h1 className="text-xl md:text-2xl font-light tracking-tight text-black">
+              New Shi Long
+            </h1>
           </a>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          {/* Desktop Navigation - 更简洁的设计 */}
+          <div className="hidden md:flex items-center space-x-8 lg:space-x-10">
             {navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="text-sm font-medium text-gray-700 hover:text-green-600 transition-colors"
+                className="text-sm font-normal text-gray-900 hover:text-black transition-colors tracking-wide relative group focus-visible:outline-2 focus-visible:outline-black focus-visible:outline-offset-2 rounded px-1"
               >
                 {item.label}
+                <span className="absolute -bottom-1 left-1 right-1 h-0.5 bg-black transition-all duration-300 group-hover:w-full w-0 group-focus-visible:w-full"></span>
               </a>
             ))}
             {/* Language Toggle */}
             <button
               onClick={toggleLanguage}
-              className="flex items-center space-x-1 text-sm font-medium text-gray-700 hover:text-green-600 transition-colors"
+              className="flex items-center space-x-1 text-sm font-normal text-gray-900 hover:text-black transition-colors focus-visible:outline-2 focus-visible:outline-black focus-visible:outline-offset-2 rounded px-2 py-1"
               title={uiText.navigation.switchLanguage}
+              aria-label={uiText.navigation.switchLanguage}
             >
               <Languages className="w-4 h-4" />
-              <span>{language === 'zh' ? 'EN' : '中文'}</span>
+              <span className="text-xs">{language === 'zh' ? 'EN' : '中文'}</span>
             </button>
-            <Button className="gradient-primary text-white shadow-lg hover:shadow-xl transition-shadow" asChild>
+            <Button className="tech-button bg-black text-white hover:bg-gray-900 px-6 py-2.5 text-sm font-normal tracking-wide focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2" asChild>
               <a href={`mailto:uj.zhou@foxmail.com?subject=${encodeURIComponent(language === 'zh' ? '咨询羊肚菌产品,并获取样品' : 'Inquiry about Morel Mushrooms and Request Sample')}`}>
                 {uiText.navigation.requestSample}
               </a>
             </Button>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button - 优化触摸区域 */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-gray-100"
+            className="md:hidden p-2.5 rounded-lg hover:bg-gray-100 active:bg-gray-200 transition-colors touch-manipulation focus-visible:outline-2 focus-visible:outline-black focus-visible:outline-offset-2"
+            aria-label={isOpen ? "关闭菜单" : "打开菜单"}
+            aria-expanded={isOpen}
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu - 优化的移动端体验 */}
         {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="md:hidden py-4 border-t border-gray-200"
-          >
-            {navItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                onClick={() => setIsOpen(false)}
-                className="block py-3 text-gray-700 hover:text-green-600 hover:bg-green-50 rounded-lg px-4 transition-colors"
-              >
-                {item.label}
-              </a>
-            ))}
-            {/* Mobile Language Toggle */}
-            <button
-              onClick={() => {
-                toggleLanguage();
-                setIsOpen(false);
-              }}
-              className="flex items-center space-x-2 py-3 px-4 text-gray-700 hover:text-green-600 hover:bg-green-50 rounded-lg transition-colors w-full"
+          <>
+            {/* 背景遮罩 - 点击关闭 */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40 md:hidden"
+              onClick={() => setIsOpen(false)}
+              aria-hidden="true"
+            />
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              className="md:hidden py-4 border-t border-gray-200 bg-white relative z-50"
             >
-              <Languages className="w-5 h-5" />
-              <span>{uiText.navigation.switchToEnglish}</span>
-            </button>
-            <Button className="w-full mt-4 gradient-primary text-white" asChild>
-              <a href={`mailto:uj.zhou@foxmail.com?subject=${encodeURIComponent(language === 'zh' ? '咨询羊肚菌产品,并获取样品' : 'Inquiry about Morel Mushrooms and Request Sample')}`}>
-                {uiText.navigation.requestSample}
-              </a>
-            </Button>
-          </motion.div>
+              {navItems.map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setIsOpen(false)}
+                  className="block py-3.5 text-base text-gray-900 hover:text-black hover:bg-gray-50 rounded-lg px-4 mx-2 mb-1 transition-colors active:bg-gray-100 touch-manipulation min-h-[44px] flex items-center focus-visible:outline-2 focus-visible:outline-black focus-visible:outline-offset-2"
+                >
+                  {item.label}
+                </a>
+              ))}
+              {/* Mobile Language Toggle */}
+              <button
+                onClick={() => {
+                  toggleLanguage();
+                  setIsOpen(false);
+                }}
+                className="flex items-center space-x-2 py-3.5 px-4 text-base text-gray-900 hover:text-black hover:bg-gray-50 rounded-lg transition-colors w-full active:bg-gray-100 touch-manipulation min-h-[44px] mx-2 focus-visible:outline-2 focus-visible:outline-black focus-visible:outline-offset-2"
+                aria-label={uiText.navigation.switchLanguage}
+              >
+                <Languages className="w-5 h-5" />
+                <span>{uiText.navigation.switchToEnglish}</span>
+              </button>
+              <Button className="w-full mt-4 mx-2 tech-button bg-black text-white min-h-[48px] text-base" asChild>
+                <a href={`mailto:uj.zhou@foxmail.com?subject=${encodeURIComponent(language === 'zh' ? '咨询羊肚菌产品,并获取样品' : 'Inquiry about Morel Mushrooms and Request Sample')}`}>
+                  {uiText.navigation.requestSample}
+                </a>
+              </Button>
+            </motion.div>
+          </>
         )}
       </div>
     </nav>
@@ -220,48 +251,46 @@ Navigation.displayName = "Navigation";
 const HeroSection = memo(({ companyData, uiText }: { companyData: CompanyData; uiText: UIText }) => {
   const { language } = useLanguage();
   return (
-  <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 bg-gradient-to-br from-green-50 via-white to-blue-50">
-    {/* 科技感背景装饰 */}
-    <div className="absolute inset-0 tech-grid opacity-50" />
-    
-    {/* 浮动光点装饰 */}
-    <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-green-500 rounded-full animate-pulse opacity-60" />
-    <div className="absolute top-1/3 right-1/3 w-1.5 h-1.5 bg-blue-500 rounded-full animate-pulse opacity-50" style={{ animationDelay: '1s' }} />
-    <div className="absolute bottom-1/3 left-1/2 w-2.5 h-2.5 bg-green-400 rounded-full animate-pulse opacity-40" style={{ animationDelay: '2s' }} />
-    <div className="absolute top-2/3 right-1/4 w-1 h-1 bg-emerald-400 rounded-full animate-pulse opacity-70" style={{ animationDelay: '1.5s' }} />
-    
-    {/* 渐变光晕装饰 */}
-    <div className="absolute top-0 left-0 w-96 h-96 bg-green-300 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-float" />
-    <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-float" style={{ animationDelay: '2s' }} />
-    
-    <div className="relative z-10 container mx-auto max-w-7xl px-4 text-center">
+  <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 md:pt-20 lg:pt-24 bg-white">
+    <div className="relative z-10 container mx-auto max-w-6xl px-4 sm:px-6 md:px-6 lg:px-8 text-center">
       <motion.div {...fadeInUp}>
-        <p className="mb-8 text-green-600 font-bold text-lg md:text-xl">
+        {/* 参考 Supima 和 Foundry 的大标题设计 */}
+        <p className="mb-6 text-gray-600 font-light text-sm md:text-base tracking-wider uppercase">
           {companyData.companyInfo.founded && `${language === 'zh' ? '成立于' : 'Founded in'} ${companyData.companyInfo.founded} · `}{companyData.companyInfo.tagline}
         </p>
         
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight tech-title">
-          <span className="tech-text-animated">{companyData.companyInfo.slogan}</span>
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light mb-10 md:mb-12 lg:mb-16 leading-[1.05] tracking-tight text-black">
+          <span className="tech-text-animated inline-block">{companyData.companyInfo.slogan}</span>
         </h1>
         
-        <p className="text-xl md:text-2xl text-gray-800 mb-6 max-w-3xl mx-auto font-semibold leading-relaxed">
+        <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700 mb-6 md:mb-8 max-w-2xl mx-auto font-light leading-relaxed">
           {companyData.companyInfo.name}{language === 'zh' ? '专注于' : ' focuses on '}{companyData.companyInfo.focus}
         </p>
         
-        <p className="text-lg md:text-xl text-gray-700 mb-10 max-w-2xl mx-auto font-medium leading-relaxed">
+        <p className="text-sm sm:text-base md:text-lg text-gray-600 mb-12 md:mb-16 max-w-xl mx-auto font-light leading-relaxed">
           {companyData.aboutUs.mission}
         </p>
         
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <Button size="lg" className="tech-button gradient-primary text-white shadow-xl hover:shadow-2xl transition-all px-8 py-6 text-lg" asChild>
-            <a href="#services">
+        {/* 参考 Foundry 的按钮设计 - 移动端优化 */}
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center w-full sm:w-auto">
+          <Button 
+            size="lg" 
+            className="tech-button bg-black text-white hover:bg-gray-900 px-6 sm:px-8 py-3.5 sm:py-4 text-sm sm:text-base font-normal tracking-wide focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2 w-full sm:w-auto min-h-[48px] touch-manipulation" 
+            asChild
+          >
+            <a href="#services" aria-label={uiText.hero.learnMore}>
               {uiText.hero.learnMore}
-              <ArrowRight className="ml-2 w-5 h-5" />
+              <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
             </a>
           </Button>
-          <Button size="lg" variant="outline" className="tech-button border-2 border-purple-600 text-purple-600 hover:bg-purple-50 px-8 py-6 text-lg" asChild>
-            <a href="#contact">
-              <Phone className="mr-2 w-5 h-5" />
+          <Button 
+            size="lg" 
+            variant="outline" 
+            className="border border-gray-300 text-gray-900 hover:bg-gray-50 hover:border-gray-400 px-6 sm:px-8 py-3.5 sm:py-4 text-sm sm:text-base font-normal tracking-wide focus-visible:outline-2 focus-visible:outline-black focus-visible:outline-offset-2 transition-all w-full sm:w-auto min-h-[48px] touch-manipulation" 
+            asChild
+          >
+            <a href="#contact" aria-label={uiText.hero.contactUs}>
+              <Phone className="mr-2 w-4 h-4 transition-transform group-hover:scale-110" />
               {uiText.hero.contactUs}
             </a>
           </Button>
@@ -269,9 +298,9 @@ const HeroSection = memo(({ companyData, uiText }: { companyData: CompanyData; u
       </motion.div>
     </div>
     
-    {/* Scroll Indicator */}
-    <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-      <ChevronRight className="w-6 h-6 text-gray-400 rotate-90" />
+    {/* 简洁的滚动指示器 */}
+    <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2">
+      <ChevronRight className="w-5 h-5 text-gray-400 rotate-90 animate-bounce" />
     </div>
   </section>
   );
@@ -280,15 +309,15 @@ HeroSection.displayName = "HeroSection";
 
 // Focus Areas Section
 const FocusAreasSection = memo(({ companyData, uiText }: { companyData: CompanyData; uiText: UIText }) => (
-  <Section className="bg-gradient-to-b from-white to-green-50">
-    <motion.div {...fadeInUp} className="text-center mb-16">
-      <Badge className="mb-6 px-6 py-2 text-base md:text-lg font-bold gradient-secondary text-white border-0 shadow-lg">
+  <Section className="bg-white">
+    <motion.div {...fadeInUp} className="text-center mb-12 md:mb-16 lg:mb-20">
+      <p className="mb-3 md:mb-4 text-gray-600 font-light text-xs sm:text-sm tracking-wider uppercase">
         {uiText.focusAreas.badge}
-      </Badge>
-      <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 tech-title">
-        {uiText.focusAreas.title}<span className="gradient-text">{uiText.focusAreas.titleHighlight}</span>
+      </p>
+      <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light mb-6 md:mb-8 tracking-tight text-black">
+        {uiText.focusAreas.title}<span className="text-black">{uiText.focusAreas.titleHighlight}</span>
       </h2>
-      <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto font-medium leading-relaxed">
+      <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto font-light leading-relaxed px-4">
         {uiText.focusAreas.subtitle}
       </p>
     </motion.div>
@@ -297,29 +326,26 @@ const FocusAreasSection = memo(({ companyData, uiText }: { companyData: CompanyD
       variants={staggerContainer}
       initial="initial"
       whileInView="animate"
-      viewport={{ once: true }}
-      className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+      viewport={{ once: true, margin: "-50px" }}
+      className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8"
     >
       {companyData.focusAreas.map((area, index) => {
         const Icon = iconMap[area.icon as keyof typeof iconMap] || Sparkles;
         return (
           <motion.div key={index} variants={fadeInUp}>
-            <Card className="tech-card group hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-purple-200 h-full tech-grid">
-              <CardHeader>
+            <Card className="tech-card group h-full bg-white border border-gray-200 focus-visible:outline-2 focus-visible:outline-black focus-visible:outline-offset-2">
+              <CardHeader className="pb-4">
                 <div 
-                  className="w-16 h-16 rounded-2xl mb-4 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform relative"
-                  style={{ backgroundColor: `${area.color}20` }}
+                  className="w-12 h-12 mb-6 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-focus-visible:scale-110"
                 >
-                  <Icon className="w-8 h-8 animate-float" style={{ color: area.color }} />
-                  {/* 科技光点 */}
-                  <div className="absolute -top-1 -right-1 w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: area.color }} />
+                  <Icon className="w-6 h-6 text-gray-900 transition-colors group-hover:text-black" />
                 </div>
-                <CardTitle className="text-xl font-bold group-hover:text-purple-600 transition-colors">
+                <CardTitle className="text-lg font-normal text-black mb-3 transition-colors group-hover:text-black">
                   {area.name}
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-800 leading-relaxed font-medium">{area.description}</p>
+                <p className="text-gray-600 leading-relaxed font-light text-sm transition-colors group-hover:text-gray-700">{area.description}</p>
               </CardContent>
             </Card>
           </motion.div>
@@ -330,36 +356,36 @@ const FocusAreasSection = memo(({ companyData, uiText }: { companyData: CompanyD
 ));
 FocusAreasSection.displayName = "FocusAreasSection";
 
-// About Section
+// About Section - 参考 Supima 的简洁设计
 const AboutSection = memo(({ companyData, uiText }: { companyData: CompanyData; uiText: UIText }) => (
   <Section id="about" className="bg-white">
     <div className="max-w-4xl mx-auto">
-      <motion.div {...fadeInUp} className="text-center">
-        <Badge className="mb-6 px-6 py-2 text-base md:text-lg font-bold gradient-primary text-white border-0 shadow-lg">
+      <motion.div {...fadeInUp} className="text-center mb-16">
+        <p className="mb-4 text-gray-600 font-light text-sm tracking-wider uppercase">
           {uiText.about.badge}
-        </Badge>
-        <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
-          {uiText.about.title}<span className="gradient-text">{companyData.companyInfo.focus}</span>
+        </p>
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-light mb-12 tracking-tight text-black">
+          {uiText.about.title}<span className="text-black">{companyData.companyInfo.focus}</span>
         </h2>
-        <div className="space-y-6 text-gray-800 leading-relaxed text-left text-xl font-medium">
+        <div className="space-y-8 text-gray-700 leading-relaxed text-left text-base md:text-lg font-light">
           {companyData.aboutUs.intro.map((paragraph, index) => (
             <p key={index}>{paragraph}</p>
           ))}
         </div>
         
-        <div className="mt-10 space-y-6">
-          <div className="flex items-start space-x-4 text-left">
-            <CheckCircle2 className="w-7 h-7 text-green-600 flex-shrink-0 mt-1" />
+        <div className="mt-16 space-y-8">
+          <div className="flex items-start space-x-6 text-left">
+            <CheckCircle2 className="w-5 h-5 text-black flex-shrink-0 mt-1" />
             <div>
-              <h4 className="font-bold text-gray-900 mb-2 text-lg">{uiText.about.coreGoal}</h4>
-              <p className="text-gray-800 font-medium text-base leading-relaxed">{companyData.aboutUs.mission}</p>
+              <h4 className="font-normal text-black mb-3 text-base tracking-wide">{uiText.about.coreGoal}</h4>
+              <p className="text-gray-600 font-light text-sm leading-relaxed">{companyData.aboutUs.mission}</p>
             </div>
           </div>
-          <div className="flex items-start space-x-4 text-left">
-            <Target className="w-7 h-7 text-blue-600 flex-shrink-0 mt-1" />
+          <div className="flex items-start space-x-6 text-left">
+            <Target className="w-5 h-5 text-black flex-shrink-0 mt-1" />
             <div>
-              <h4 className="font-bold text-gray-900 mb-2 text-lg">{uiText.about.vision}</h4>
-              <p className="text-gray-800 font-medium text-base leading-relaxed">{companyData.aboutUs.vision}</p>
+              <h4 className="font-normal text-black mb-3 text-base tracking-wide">{uiText.about.vision}</h4>
+              <p className="text-gray-600 font-light text-sm leading-relaxed">{companyData.aboutUs.vision}</p>
             </div>
           </div>
         </div>
@@ -369,19 +395,19 @@ const AboutSection = memo(({ companyData, uiText }: { companyData: CompanyData; 
 ));
 AboutSection.displayName = "AboutSection";
 
-// Core Advantages Section
+// Core Advantages Section - 参考 Foundry 的优雅设计
 const AdvantagesSection = memo(({ companyData, uiText }: { companyData: CompanyData; uiText: UIText }) => (
-  <Section id="services" className="bg-gradient-to-b from-green-50 to-white">
-    <motion.div {...fadeInUp} className="text-center mb-16">
-      <Badge className="mb-6 px-6 py-2 text-base md:text-lg font-bold gradient-accent text-white border-0 shadow-lg">
+  <Section id="services" className="bg-white">
+    <motion.div {...fadeInUp} className="text-center mb-20">
+      <p className="mb-4 text-gray-600 font-light text-sm tracking-wider uppercase">
         {uiText.advantages.badge}
-      </Badge>
-      <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
-        {uiText.advantages.title}<span className="gradient-text">{uiText.advantages.titleHighlight}</span>
+      </p>
+      <h2 className="text-4xl md:text-5xl lg:text-6xl font-light mb-8 tracking-tight text-black">
+        {uiText.advantages.title}<span className="text-black">{uiText.advantages.titleHighlight}</span>
       </h2>
     </motion.div>
 
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
       {companyData.coreAdvantages.map((advantage, index) => {
         const Icon = iconMap[advantage.icon as keyof typeof iconMap] || Sparkles;
         return (
@@ -390,22 +416,20 @@ const AdvantagesSection = memo(({ companyData, uiText }: { companyData: CompanyD
             {...fadeInUp}
             transition={{ delay: index * 0.1 }}
           >
-            <Card className="tech-card h-full hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-green-200 tech-grid">
+            <Card className="tech-card h-full bg-white border border-gray-200">
               <CardHeader>
-                <div className="flex items-center space-x-4 mb-4">
-                  <div className="w-14 h-14 rounded-xl gradient-primary flex items-center justify-center shadow-lg relative group-hover:shadow-purple-500/50 transition-shadow">
-                    <Icon className="w-7 h-7 text-white group-hover:scale-110 transition-transform" />
-                    {/* 光环效果 */}
-                    <div className="absolute inset-0 rounded-xl bg-purple-400/20 opacity-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300" />
+                <div className="flex items-center space-x-6 mb-6">
+                  <div className="w-12 h-12 flex items-center justify-center">
+                    <Icon className="w-6 h-6 text-black" />
                   </div>
-                  <CardTitle className="text-2xl font-bold">{advantage.title}</CardTitle>
+                  <CardTitle className="text-xl font-normal text-black">{advantage.title}</CardTitle>
                 </div>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-800 leading-relaxed mb-6 font-medium text-base">{advantage.description}</p>
+                <p className="text-gray-600 leading-relaxed mb-6 font-light text-sm">{advantage.description}</p>
                 <div className="flex flex-wrap gap-2">
                   {advantage.highlights.map((highlight, idx) => (
-                    <Badge key={idx} variant="secondary" className="bg-green-100 text-green-700 hover:bg-green-200 text-sm font-medium">
+                    <Badge key={idx} variant="outline" className="border-gray-300 text-gray-700 text-xs font-light">
                       {highlight}
                     </Badge>
                   ))}
@@ -420,47 +444,43 @@ const AdvantagesSection = memo(({ companyData, uiText }: { companyData: CompanyD
 ));
 AdvantagesSection.displayName = "AdvantagesSection";
 
-// Team Section
+// Team Section - 参考 Supima 的简洁团队展示
 const TeamSection = memo(({ companyData, uiText }: { companyData: CompanyData; uiText: UIText }) => (
   <Section id="team" className="bg-white">
-    <motion.div {...fadeInUp} className="text-center mb-16">
-      <Badge className="mb-6 px-6 py-2 text-base md:text-lg font-bold gradient-primary text-white border-0 shadow-lg">
+    <motion.div {...fadeInUp} className="text-center mb-20">
+      <p className="mb-4 text-gray-600 font-light text-sm tracking-wider uppercase">
         {uiText.team.badge}
-      </Badge>
-      <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
-        {uiText.team.title}<span className="gradient-text">{uiText.team.titleHighlight}</span>
+      </p>
+      <h2 className="text-4xl md:text-5xl lg:text-6xl font-light mb-8 tracking-tight text-black">
+        {uiText.team.title}<span className="text-black">{uiText.team.titleHighlight}</span>
       </h2>
-      <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto font-medium leading-relaxed">
+      <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto font-light leading-relaxed">
         {companyData.team.intro}
       </p>
     </motion.div>
 
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
       {companyData.team.leadership.map((member, index) => (
         <motion.div
           key={index}
           {...fadeInUp}
           transition={{ delay: index * 0.1 }}
         >
-          <Card className="tech-card group hover:shadow-2xl transition-all duration-300 text-center h-full">
+          <Card className="tech-card group text-center h-full bg-white border border-gray-200">
             <CardHeader>
-              <div className="w-32 h-32 mx-auto mb-4 rounded-full gradient-primary p-1 shadow-xl relative group-hover:shadow-green-500/50 transition-shadow">
-                <div className="w-full h-full rounded-full bg-white flex items-center justify-center">
-                  <Users className="w-16 h-16 text-green-600 group-hover:scale-110 transition-transform" />
-                </div>
-                {/* 旋转光环 */}
-                <div className="absolute inset-0 rounded-full border-2 border-green-400/30 opacity-0 group-hover:opacity-100 transition-opacity animate-spin-slow" />
+              <div className="w-24 h-24 mx-auto mb-6 flex items-center justify-center">
+                <Users className="w-12 h-12 text-black" />
               </div>
-              <CardTitle className="text-2xl font-bold mb-2">{member.name}</CardTitle>
-              <CardDescription className="text-green-600 font-bold text-base">
+              <CardTitle className="text-lg font-normal mb-2 text-black">{member.name}</CardTitle>
+              <CardDescription className="text-gray-600 font-light text-sm">
                 {member.title}
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-gray-600 mb-4 leading-relaxed font-medium">{member.background}</p>
+              <p className="text-xs text-gray-600 mb-4 leading-relaxed font-light">{member.background}</p>
               <div className="flex flex-wrap gap-2 justify-center">
                 {member.expertise.slice(0, 3).map((skill, idx) => (
-                  <Badge key={idx} variant="outline" className="text-sm font-medium">
+                  <Badge key={idx} variant="outline" className="text-xs font-light border-gray-300 text-gray-600">
                     {skill}
                   </Badge>
                 ))}
@@ -474,22 +494,22 @@ const TeamSection = memo(({ companyData, uiText }: { companyData: CompanyData; u
 ));
 TeamSection.displayName = "TeamSection";
 
-// Case Studies Section
+// Case Studies Section - 参考 Foundry 的案例展示
 const CaseStudiesSection = memo(({ companyData, uiText }: { companyData: CompanyData; uiText: UIText }) => (
-  <Section id="cases" className="bg-gradient-to-b from-white to-green-50">
-    <motion.div {...fadeInUp} className="text-center mb-16">
-      <Badge className="mb-6 px-6 py-2 text-base md:text-lg font-bold gradient-secondary text-white border-0 shadow-lg">
+  <Section id="cases" className="bg-white">
+    <motion.div {...fadeInUp} className="text-center mb-20">
+      <p className="mb-4 text-gray-600 font-light text-sm tracking-wider uppercase">
         {uiText.cases.badge}
-      </Badge>
-      <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
-        <span className="gradient-text">{uiText.cases.title}</span>{uiText.cases.titleHighlight}
+      </p>
+      <h2 className="text-4xl md:text-5xl lg:text-6xl font-light mb-8 tracking-tight text-black">
+        <span className="text-black">{uiText.cases.title}</span>{uiText.cases.titleHighlight}
       </h2>
-      <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto font-medium leading-relaxed">
+      <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto font-light leading-relaxed">
         {uiText.cases.subtitle}
       </p>
     </motion.div>
 
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
       {companyData.caseStudies.map((caseStudy, index) => {
         const Icon = iconMap[caseStudy.icon as keyof typeof iconMap] || FileText;
         return (
@@ -498,44 +518,33 @@ const CaseStudiesSection = memo(({ companyData, uiText }: { companyData: Company
             {...fadeInUp}
             transition={{ delay: index * 0.1 }}
           >
-            <Card className="tech-card group hover:shadow-2xl transition-all duration-300 h-full overflow-hidden border-2 border-transparent hover:border-green-200">
-              {/* Header with Icon - 科技感顶部条 */}
-              <div 
-                className="h-1 relative overflow-hidden"
-                style={{ backgroundColor: caseStudy.color }}
-              >
-                {/* 扫描线效果 */}
-                <div className="absolute inset-0 w-1/3 bg-white/30 transform -translate-x-full group-hover:translate-x-[300%] transition-transform duration-1000" />
-              </div>
+            <Card className="tech-card group h-full overflow-hidden bg-white border border-gray-200">
               <CardHeader>
-                <div className="flex items-start space-x-4">
-                  <div 
-                    className="w-14 h-14 rounded-xl flex items-center justify-center shadow-lg flex-shrink-0"
-                    style={{ backgroundColor: `${caseStudy.color}20` }}
-                  >
-                    <Icon className="w-7 h-7" style={{ color: caseStudy.color }} />
+                <div className="flex items-start space-x-6 mb-6">
+                  <div className="w-12 h-12 flex items-center justify-center flex-shrink-0">
+                    <Icon className="w-6 h-6 text-black" />
                   </div>
                   <div className="flex-1">
-                    <Badge className="mb-3 text-sm font-semibold" style={{ backgroundColor: caseStudy.color, color: 'white' }}>
+                    <Badge variant="outline" className="mb-3 text-xs font-light border-gray-300 text-gray-600">
                       {caseStudy.category}
                     </Badge>
-                    <CardTitle className="text-2xl font-bold mb-3">
+                    <CardTitle className="text-xl font-normal mb-3 text-black">
                       {caseStudy.title}
                     </CardTitle>
-                    <CardDescription className="text-gray-700 text-base font-medium">
+                    <CardDescription className="text-gray-600 text-sm font-light">
                       {caseStudy.subtitle}
                     </CardDescription>
                   </div>
                 </div>
               </CardHeader>
 
-              <CardContent className="space-y-5">
+              <CardContent className="space-y-6">
                 {/* Technologies */}
                 <div>
-                  <h4 className="font-bold text-base text-gray-900 mb-3">{uiText.cases.technologies}</h4>
+                  <h4 className="font-normal text-sm text-gray-900 mb-3 tracking-wide">{uiText.cases.technologies}</h4>
                   <div className="flex flex-wrap gap-2">
                     {caseStudy.technologies.map((tech, idx) => (
-                      <Badge key={idx} variant="outline" className="text-sm font-medium">
+                      <Badge key={idx} variant="outline" className="text-xs font-light border-gray-300 text-gray-600">
                         {tech}
                       </Badge>
                     ))}
@@ -544,23 +553,23 @@ const CaseStudiesSection = memo(({ companyData, uiText }: { companyData: Company
 
                 {/* Pain Point (if exists) */}
                 {caseStudy.painPoint && (
-                  <div className="bg-red-50 border-2 border-red-200 rounded-lg p-4">
-                    <p className="text-base text-red-800 font-medium leading-relaxed">
-                      <strong className="font-bold">{uiText.cases.painPoint}</strong>{caseStudy.painPoint}
+                  <div className="bg-gray-50 border border-gray-200 rounded p-4">
+                    <p className="text-sm text-gray-700 font-light leading-relaxed">
+                      <span className="font-normal">{uiText.cases.painPoint}</span>{caseStudy.painPoint}
                     </p>
                   </div>
                 )}
 
                 {/* Features */}
                 <div>
-                  <h4 className="font-bold text-base text-gray-900 mb-3">{uiText.cases.features}</h4>
+                  <h4 className="font-normal text-sm text-gray-900 mb-3 tracking-wide">{uiText.cases.features}</h4>
                   <Accordion type="single" collapsible>
                     {caseStudy.features.map((feature, idx) => (
                       <AccordionItem key={idx} value={`feature-${idx}`}>
-                        <AccordionTrigger className="text-base font-semibold">
+                        <AccordionTrigger className="text-sm font-normal">
                           {feature.name}
                         </AccordionTrigger>
-                        <AccordionContent className="text-base text-gray-700 leading-relaxed font-medium">
+                        <AccordionContent className="text-sm text-gray-600 leading-relaxed font-light">
                           {feature.description}
                         </AccordionContent>
                       </AccordionItem>
@@ -569,12 +578,12 @@ const CaseStudiesSection = memo(({ companyData, uiText }: { companyData: Company
                 </div>
 
                 {/* Outcome */}
-                <div className="bg-green-50 border-2 border-green-200 rounded-lg p-5">
-                  <div className="flex items-start space-x-3">
-                    <CheckCircle2 className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" />
+                <div className="bg-gray-50 border border-gray-200 rounded p-5">
+                  <div className="flex items-start space-x-4">
+                    <CheckCircle2 className="w-5 h-5 text-black flex-shrink-0 mt-0.5" />
                     <div>
-                      <h4 className="font-bold text-base text-green-800 mb-2">{uiText.cases.outcome}</h4>
-                      <p className="text-base text-green-700 leading-relaxed font-medium">{caseStudy.outcome}</p>
+                      <h4 className="font-normal text-sm text-black mb-2 tracking-wide">{uiText.cases.outcome}</h4>
+                      <p className="text-sm text-gray-600 leading-relaxed font-light">{caseStudy.outcome}</p>
                     </div>
                   </div>
                 </div>
@@ -594,14 +603,14 @@ const ContactSection = memo(({ companyData, uiText }: { companyData: CompanyData
   
   return (
   <Section id="contact" className="bg-white">
-    <motion.div {...fadeInUp} className="text-center mb-16">
-      <Badge className="mb-6 px-6 py-2 text-base md:text-lg font-bold gradient-primary text-white border-0 shadow-lg">
+    <motion.div {...fadeInUp} className="text-center mb-20">
+      <p className="mb-4 text-gray-600 font-light text-sm tracking-wider uppercase">
         {uiText.contact.badge}
-      </Badge>
-      <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
-        {uiText.contact.title}<span className="gradient-text">{uiText.contact.titleHighlight}</span>{uiText.contact.titleSuffix}
+      </p>
+      <h2 className="text-4xl md:text-5xl lg:text-6xl font-light mb-8 tracking-tight text-black">
+        {uiText.contact.title}<span className="text-black">{uiText.contact.titleHighlight}</span>{uiText.contact.titleSuffix}
       </h2>
-      <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto font-medium leading-relaxed">
+      <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto font-light leading-relaxed">
         {uiText.contact.subtitle}
       </p>
     </motion.div>
@@ -609,41 +618,41 @@ const ContactSection = memo(({ companyData, uiText }: { companyData: CompanyData
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
       {/* Contact Info */}
       <motion.div {...fadeInUp} className="space-y-6">
-        <Card className="border-2 border-green-200 hover:shadow-xl transition-shadow">
+        <Card className="border border-gray-200 hover:shadow-lg transition-shadow bg-white">
           <CardContent className="pt-6">
-            <div className="space-y-6">
-              <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 rounded-xl gradient-primary flex items-center justify-center shadow-lg flex-shrink-0">
-                  <Phone className="w-6 h-6 text-white" />
+            <div className="space-y-8">
+              <div className="flex items-start space-x-6">
+                <div className="w-10 h-10 flex items-center justify-center flex-shrink-0">
+                  <Phone className="w-5 h-5 text-black" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900 mb-1">{uiText.contact.phoneLabel}</h4>
-                  <a href={`tel:${companyData.contact.phone}`} className="text-green-600 hover:text-green-700 font-medium">
+                  <h4 className="font-normal text-sm text-gray-900 mb-2 tracking-wide">{uiText.contact.phoneLabel}</h4>
+                  <a href={`tel:${companyData.contact.phone}`} className="text-gray-700 hover:text-black font-light text-sm">
                     {companyData.contact.phone}
                   </a>
-                  <p className="text-sm text-gray-500 mt-1">{companyData.contact.workingHours}</p>
+                  <p className="text-xs text-gray-500 mt-1 font-light">{companyData.contact.workingHours}</p>
                 </div>
               </div>
 
-              <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 rounded-xl gradient-secondary flex items-center justify-center shadow-lg flex-shrink-0">
-                  <Mail className="w-6 h-6 text-white" />
+              <div className="flex items-start space-x-6">
+                <div className="w-10 h-10 flex items-center justify-center flex-shrink-0">
+                  <Mail className="w-5 h-5 text-black" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900 mb-1">{uiText.contact.emailLabel}</h4>
-                  <a href={`mailto:${companyData.contact.email}?subject=${encodeURIComponent(language === 'zh' ? '咨询羊肚菌产品' : 'Inquiry about Morel Mushrooms')}`} className="text-green-600 hover:text-green-700 font-medium">
+                  <h4 className="font-normal text-sm text-gray-900 mb-2 tracking-wide">{uiText.contact.emailLabel}</h4>
+                  <a href={`mailto:${companyData.contact.email}?subject=${encodeURIComponent(language === 'zh' ? '咨询羊肚菌产品' : 'Inquiry about Morel Mushrooms')}`} className="text-gray-700 hover:text-black font-light text-sm">
                     {companyData.contact.email}
                   </a>
                 </div>
               </div>
 
-              <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 rounded-xl gradient-accent flex items-center justify-center shadow-lg flex-shrink-0">
-                  <MapPin className="w-6 h-6 text-white" />
+              <div className="flex items-start space-x-6">
+                <div className="w-10 h-10 flex items-center justify-center flex-shrink-0">
+                  <MapPin className="w-5 h-5 text-black" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900 mb-1">{uiText.contact.addressLabel}</h4>
-                  <p className="text-gray-600">
+                  <h4 className="font-normal text-sm text-gray-900 mb-2 tracking-wide">{uiText.contact.addressLabel}</h4>
+                  <p className="text-gray-600 text-sm font-light">
                     {companyData.contact.address}
                   </p>
                 </div>
@@ -652,16 +661,16 @@ const ContactSection = memo(({ companyData, uiText }: { companyData: CompanyData
           </CardContent>
         </Card>
 
-        <Card className="bg-gradient-to-br from-green-600 to-blue-600 text-white border-0 shadow-xl">
+        <Card className="bg-black text-white border-0">
           <CardContent className="pt-6">
-            <h3 className="text-2xl font-bold mb-4">{companyData.companyInfo.slogan}</h3>
-            <p className="mb-6 opacity-90">
+            <h3 className="text-xl font-light mb-4">{companyData.companyInfo.slogan}</h3>
+            <p className="mb-6 opacity-80 text-sm font-light leading-relaxed">
               {companyData.aboutUs.vision}
             </p>
-            <Button size="lg" className="w-full bg-white text-green-600 hover:bg-gray-100 shadow-lg" asChild>
+            <Button size="lg" className="w-full tech-button bg-white text-black hover:bg-gray-100" asChild>
               <a href={`mailto:${companyData.contact.email}?subject=${encodeURIComponent(language === 'zh' ? '咨询羊肚菌产品与合作' : 'Inquiry about Morel Mushrooms & Cooperation')}`}>
                 {uiText.contact.cta}
-                <ArrowRight className="ml-2 w-5 h-5" />
+                <ArrowRight className="ml-2 w-4 h-4" />
               </a>
             </Button>
           </CardContent>
@@ -712,52 +721,52 @@ const ContactSection = memo(({ companyData, uiText }: { companyData: CompanyData
 });
 ContactSection.displayName = "ContactSection";
 
-// Footer
+// Footer - 参考 Supima 和 Foundry 的简洁 Footer
 const Footer = memo(({ companyData, uiText }: { companyData: CompanyData; uiText: UIText }) => (
-  <footer className="bg-gray-900 text-white py-12">
-    <div className="container mx-auto max-w-7xl px-4">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+  <footer className="bg-white border-t border-gray-200 py-16">
+    <div className="container mx-auto max-w-6xl px-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
         <div>
-          <div className="flex items-center space-x-3 mb-4">
+          <div className="flex items-center space-x-3 mb-6">
             <Image
               src="/scxsl-logo.png"
               alt="New Shi Long Logo"
-              width={44}
-              height={44}
+              width={40}
+              height={40}
               className="object-contain"
             />
             <div>
-              <h3 className="text-xl font-black tracking-tight">New Shi Long</h3>
+              <h3 className="text-lg font-light tracking-tight text-black">New Shi Long</h3>
             </div>
           </div>
-          <p className="text-gray-400 text-sm mb-4">
+          <p className="text-gray-600 text-sm font-light leading-relaxed">
             {companyData.companyInfo.slogan}
           </p>
         </div>
 
         <div>
-          <h4 className="font-semibold mb-4">{uiText.footer.quickLinks}</h4>
-          <ul className="space-y-2 text-sm text-gray-400">
-            <li><a href="#about" className="hover:text-white transition-colors">{uiText.footer.about}</a></li>
-            <li><a href="#team" className="hover:text-white transition-colors">{uiText.footer.team}</a></li>
-            <li><a href="#services" className="hover:text-white transition-colors">{uiText.footer.services}</a></li>
-            <li><a href="#cases" className="hover:text-white transition-colors">{uiText.footer.cases}</a></li>
-            <li><a href="#contact" className="hover:text-white transition-colors">{uiText.footer.contact}</a></li>
+          <h4 className="font-normal text-sm text-black mb-6 tracking-wide">{uiText.footer.quickLinks}</h4>
+          <ul className="space-y-3 text-sm text-gray-600">
+            <li><a href="#about" className="hover:text-black transition-colors font-light">{uiText.footer.about}</a></li>
+            <li><a href="#team" className="hover:text-black transition-colors font-light">{uiText.footer.team}</a></li>
+            <li><a href="#services" className="hover:text-black transition-colors font-light">{uiText.footer.services}</a></li>
+            <li><a href="#cases" className="hover:text-black transition-colors font-light">{uiText.footer.cases}</a></li>
+            <li><a href="#contact" className="hover:text-black transition-colors font-light">{uiText.footer.contact}</a></li>
           </ul>
         </div>
 
         <div>
-          <h4 className="font-semibold mb-4">{uiText.footer.contactInfo}</h4>
-          <ul className="space-y-2 text-sm text-gray-400">
-            <li className="flex items-center space-x-2">
+          <h4 className="font-normal text-sm text-black mb-6 tracking-wide">{uiText.footer.contactInfo}</h4>
+          <ul className="space-y-3 text-sm text-gray-600">
+            <li className="flex items-center space-x-3 font-light">
               <Phone className="w-4 h-4" />
               <span>{companyData.contact.phone}</span>
             </li>
-            <li className="flex items-center space-x-2">
+            <li className="flex items-center space-x-3 font-light">
               <Mail className="w-4 h-4" />
               <span>{companyData.contact.email}</span>
             </li>
-            <li className="flex items-start space-x-2">
+            <li className="flex items-start space-x-3 font-light">
               <MapPin className="w-4 h-4 flex-shrink-0 mt-1" />
               <span>{companyData.contact.addressShort}</span>
             </li>
@@ -765,7 +774,7 @@ const Footer = memo(({ companyData, uiText }: { companyData: CompanyData; uiText
         </div>
       </div>
 
-      <div className="border-t border-gray-800 pt-8 text-center text-sm text-gray-400">
+      <div className="border-t border-gray-200 pt-8 text-center text-xs text-gray-500 font-light">
         <p>© {new Date().getFullYear()} {companyData.companyInfo.name}. {uiText.footer.allRightsReserved}</p>
         <p className="mt-2">{uiText.footer.foundedIn} {companyData.companyInfo.founded} · {uiText.footer.focusOn}</p>
       </div>
@@ -799,3 +808,4 @@ export default function HomePage() {
     </main>
   );
 }
+

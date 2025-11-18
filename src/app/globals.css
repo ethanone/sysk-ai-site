@@ -44,38 +44,38 @@
 }
 
 :root {
-  --radius: 0.75rem;
+  --radius: 0.5rem; /* 更小的圆角，更现代 */
   --card: #FFFFFF;
-  --card-foreground: #1F2937;
+  --card-foreground: #0A0A0A; /* 更深的文字，参考 Foundry */
   --popover: #FFFFFF;
-  --popover-foreground: #1F2937;
-  --primary: #059669; /* 专业的深绿色 - 代表自然、健康 */
+  --popover-foreground: #0A0A0A;
+  --primary: #000000; /* 黑色主色，更优雅专业 */
   --primary-foreground: #FFFFFF;
-  --secondary: #1E40AF; /* 专业的深蓝色 - 代表信任、可靠 */
+  --secondary: #6B7280; /* 中性灰，参考 Supima */
   --secondary-foreground: #FFFFFF;
-  --muted: #F9FAFB;
+  --muted: #FAFAFA; /* 更浅的背景 */
   --muted-foreground: #6B7280;
-  --accent: #F59E0B; /* 金色点缀 - 代表优质、高端 */
+  --accent: #000000; /* 黑色强调 */
   --accent-foreground: #FFFFFF;
   --destructive: #EF4444;
-  --border: #E5E7EB;
-  --input: #E5E7EB;
-  --ring: #059669;
-  --chart-1: #059669; /* 深绿 */
-  --chart-2: #1E40AF; /* 深蓝 */
-  --chart-3: #F59E0B; /* 金色 */
-  --chart-4: #3B82F6; /* 亮蓝 */
-  --chart-5: #10B981; /* 翠绿 */
+  --border: #E5E7EB; /* 更淡的边框 */
+  --input: #F3F4F6;
+  --ring: #000000;
+  --chart-1: #000000;
+  --chart-2: #6B7280;
+  --chart-3: #9CA3AF;
+  --chart-4: #D1D5DB;
+  --chart-5: #E5E7EB;
   --sidebar: #FFFFFF;
-  --sidebar-foreground: #1F2937;
-  --sidebar-primary: #059669;
+  --sidebar-foreground: #0A0A0A;
+  --sidebar-primary: #000000;
   --sidebar-primary-foreground: #FFFFFF;
-  --sidebar-accent: #F9FAFB;
-  --sidebar-accent-foreground: #1F2937;
+  --sidebar-accent: #FAFAFA;
+  --sidebar-accent-foreground: #0A0A0A;
   --sidebar-border: #E5E7EB;
-  --sidebar-ring: #059669;
+  --sidebar-ring: #000000;
   --background: #FFFFFF;
-  --foreground: #1F2937;
+  --foreground: #0A0A0A; /* 更深的文字 */
 }
 
 .dark {
@@ -183,27 +183,91 @@
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  
+  /* 优化标题字体渲染 */
+  h1, h2, h3, h4, h5, h6 {
+    font-feature-settings: "kern" 1, "liga" 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* 优化链接过渡 */
+  a {
+    transition: color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    outline: none;
+  }
+  
+  /* 优化按钮和交互元素 - 移动端优化 */
+  button, [role="button"] {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    outline: none;
+    -webkit-touch-callout: none;
+    user-select: none;
+  }
+  
+  /* 移动端触摸目标大小 - 最小 44x44px (Apple HIG) */
+  @media (max-width: 768px) {
+    button, 
+    [role="button"],
+    a[role="button"],
+    .tech-button {
+      min-height: 44px;
+      min-width: 44px;
+    }
+  }
+  
+  /* 优化的焦点状态 - 更优雅的键盘导航 */
+  a:focus-visible,
+  button:focus-visible,
+  [role="button"]:focus-visible {
+    outline: 2px solid #000000;
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+  
+  /* 输入框焦点状态 */
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    outline: 2px solid #000000;
+    outline-offset: 2px;
+    border-color: #000000;
+  }
+  
+  /* 禁用状态样式 */
+  button:disabled,
+  [role="button"]:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
   }
 }
 
-/* Custom Gradients for New Shi Long Tech */
+/* 优雅的渐变 - 参考 Supima 和 Foundry 的简洁风格 */
 .gradient-primary {
-  background: linear-gradient(135deg, #059669 0%, #10B981 100%);
+  background: #000000; /* 纯黑色，更专业 */
+  color: #FFFFFF;
 }
 
 .gradient-secondary {
-  background: linear-gradient(135deg, #1E40AF 0%, #3B82F6 100%);
+  background: #0A0A0A; /* 深灰黑 */
+  color: #FFFFFF;
 }
 
 .gradient-accent {
-  background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%);
+  background: #6B7280; /* 中性灰 */
+  color: #FFFFFF;
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #059669 0%, #1E40AF 50%, #F59E0B 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #0A0A0A; /* 纯黑色文字，更优雅 */
+  -webkit-text-fill-color: #0A0A0A;
 }
 
 .gradient-hover {
@@ -226,43 +290,11 @@
   left: 100%;
 }
 
-/* Animations */
-@keyframes text-shimmer {
-  from {
-    background-position: 200% 0;
-  }
-  to {
-    background-position: -200% 0;
-  }
-}
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/* 慢速旋转 - 用于 logo 光环 */
-@keyframes spin-slow {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.animate-spin-slow {
-  animation: spin-slow 8s linear infinite;
-}
-
+/* 优化的动画效果 - 更流畅自然 */
 @keyframes fade-in-up {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(24px);
   }
   to {
     opacity: 1;
@@ -270,12 +302,35 @@
   }
 }
 
-@keyframes float {
-  0%, 100% {
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
     transform: translateY(0);
   }
-  50% {
-    transform: translateY(-10px);
+}
+
+/* 微妙的缩放动画 */
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
 }
 
@@ -301,39 +356,236 @@
   }
 }
 
+/* 优化的动画类 */
 .animate-fade-in-up {
-  animation: fade-in-up 0.6s ease-out;
+  animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-.animate-float {
-  animation: float 3s ease-in-out infinite;
+.animate-fade-in {
+  animation: fade-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-.animate-tech-pulse {
-  animation: tech-pulse 2s ease-in-out infinite;
+.animate-slide-up {
+  animation: slide-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* Smooth scrolling */
+.animate-scale-in {
+  animation: scale-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* 优化的平滑滚动 */
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* 为固定导航栏留出空间 */
 }
 
-/* Custom scrollbar */
+/* 优化滚动条样式 */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* 简洁的滚动条 - 参考 Supima 和 Foundry */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
+  height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #F9FAFB;
+  background: #FAFAFA;
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(135deg, #059669 0%, #10B981 100%);
-  border-radius: 5px;
+  background: #D1D5DB;
+  border-radius: 4px;
+  transition: background 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 2px solid transparent;
+  background-clip: padding-box;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(135deg, #047857 0%, #059669 100%);
+  background: #9CA3AF;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: #6B7280;
+  background-clip: padding-box;
+}
+
+/* 移动端滚动优化 */
+@media (max-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    border: 1px solid transparent;
+  }
+  
+  /* 移动端平滑滚动优化 */
+  html {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+  
+  /* 移动端字体大小优化 - 防止自动缩放 */
+  body {
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+  
+  /* 移动端输入框优化 - 防止 iOS 自动缩放 */
+  input,
+  textarea,
+  select {
+    font-size: 16px !important; /* 防止 iOS 自动缩放 */
+  }
+  
+  /* 移动端卡片优化 */
+  .tech-card {
+    margin-bottom: 1rem;
+  }
+  
+  /* 移动端按钮全宽优化 */
+  .tech-button {
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  /* 移动端导航栏优化 */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+  }
+  
+  /* 移动端安全区域支持 (iPhone X 等) */
+  @supports (padding: max(0px)) {
+    nav {
+      padding-left: max(1rem, env(safe-area-inset-left));
+      padding-right: max(1rem, env(safe-area-inset-right));
+    }
+    
+    body {
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+  }
+}
+
+/* 优化页面加载时的过渡 */
+@keyframes page-load {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+body {
+  animation: page-load 0.4s ease-out;
+}
+
+/* 优化打印样式 */
+@media print {
+  .tech-card,
+  .tech-button {
+    break-inside: avoid;
+  }
+  
+  nav {
+    display: none;
+  }
+}
+
+/* 优化图片加载 */
+img {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+/* 优化选择文本 */
+::selection {
+  background: rgba(0, 0, 0, 0.12);
+  color: #000000;
+}
+
+::-moz-selection {
+  background: rgba(0, 0, 0, 0.12);
+  color: #000000;
+}
+
+/* 加载状态 */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.loading-skeleton {
+  background: linear-gradient(
+    90deg,
+    #F3F4F6 0%,
+    #E5E7EB 50%,
+    #F3F4F6 100%
+  );
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* 淡入加载效果 */
+@keyframes fade-in-load {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-load {
+  animation: fade-in-load 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* 微妙的脉冲效果 */
+@keyframes subtle-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.subtle-pulse {
+  animation: subtle-pulse 3s ease-in-out infinite;
 }
 
 /* 科技感效果 */
@@ -399,67 +651,158 @@ html {
   border-radius: 2px;
 }
 
-/* 科技感网格背景 */
+/* 简洁的网格背景 - 更微妙的视觉效果 */
 .tech-grid {
   background-image: 
-    linear-gradient(rgba(5, 150, 105, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(5, 150, 105, 0.03) 1px, transparent 1px);
-  background-size: 20px 20px;
+    linear-gradient(rgba(0, 0, 0, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.015) 1px, transparent 1px);
+  background-size: 24px 24px;
+  background-position: 0 0, 0 0;
 }
 
-/* 科技感渐变文字 - 带动画 */
+/* 响应式网格 */
+@media (max-width: 768px) {
+  .tech-grid {
+    background-size: 16px 16px;
+  }
+}
+
+/* 优化的链接样式 */
+a {
+  position: relative;
+  text-decoration: none;
+}
+
+a:not(.tech-button):hover {
+  text-decoration: none;
+}
+
+/* 内部链接的下划线效果 */
+a[href^="#"]:not(.tech-button) {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+a[href^="#"]:not(.tech-button):hover {
+  color: #000000;
+}
+
+/* 外部链接指示 */
+a[href^="http"]:not(.tech-button)::after {
+  content: "↗";
+  display: inline-block;
+  margin-left: 2px;
+  font-size: 0.75em;
+  opacity: 0.6;
+  transition: transform 0.2s;
+}
+
+a[href^="http"]:not(.tech-button):hover::after {
+  transform: translate(2px, -2px);
+  opacity: 1;
+}
+
+/* 优雅的文字效果 - 参考 Supima 和 Foundry */
 .tech-text-animated {
-  background: linear-gradient(
-    90deg,
-    #059669 0%,
-    #10B981 25%,
-    #1E40AF 50%,
-    #10B981 75%,
-    #059669 100%
-  );
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: text-shimmer 3s linear infinite;
+  color: #0A0A0A;
+  -webkit-text-fill-color: #0A0A0A;
+  font-weight: 400; /* 更轻的字重，更优雅 */
+  letter-spacing: -0.02em; /* 更紧凑的字距 */
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* 科技感卡片 hover 效果 */
+.tech-text-animated:hover {
+  transform: translateY(-1px);
+}
+
+/* 精致的卡片效果 - 参考 Foundry 的优雅设计 */
 .tech-card {
   position: relative;
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid #E5E7EB;
+  background: #FFFFFF;
+  will-change: transform;
+  cursor: pointer;
+}
+
+.tech-card:focus-visible {
+  outline: 2px solid #000000;
+  outline-offset: 2px;
+  border-color: #000000;
 }
 
 .tech-card::before {
   content: '';
   position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background: linear-gradient(135deg, #059669, #1E40AF, #10B981);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.015);
   border-radius: inherit;
   opacity: 0;
-  transition: opacity 0.3s;
-  z-index: -1;
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.tech-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.1), transparent);
+  opacity: 0;
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1;
+  pointer-events: none;
 }
 
 .tech-card:hover::before {
-  opacity: 0.1;
+  opacity: 1;
+}
+
+.tech-card:hover::after {
+  opacity: 1;
 }
 
 .tech-card:hover {
-  transform: translateY(-2px);
+  transform: translateY(-6px);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.06);
+  border-color: #D1D5DB;
 }
 
-/* 科技感按钮效果 */
+/* 移动端优化 - 减少 hover 效果 */
+@media (hover: none) {
+  .tech-card:hover {
+    transform: none;
+  }
+}
+
+/* 优雅的按钮效果 - 参考 Supima 和 Foundry */
 .tech-button {
   position: relative;
   overflow: hidden;
+  background: #000000;
+  color: #FFFFFF;
+  border: 1px solid #000000;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  will-change: transform;
+  cursor: pointer;
+  user-select: none;
 }
 
-.tech-button::after {
+.tech-button:focus-visible {
+  outline: 2px solid #FFFFFF;
+  outline-offset: 2px;
+}
+
+.tech-button::before {
   content: '';
   position: absolute;
   top: 50%;
@@ -467,12 +810,32 @@ html {
   width: 0;
   height: 0;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
   transform: translate(-50%, -50%);
-  transition: width 0.6s, height 0.6s;
+  transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1), height 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
 }
 
-.tech-button:hover::after {
+.tech-button:hover {
+  background: #0A0A0A;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+}
+
+.tech-button:hover::before {
   width: 300px;
   height: 300px;
 }
+
+.tech-button:active {
+  transform: translateY(0);
+  transition: transform 0.1s;
+}
+
+/* 移动端优化 */
+@media (hover: none) {
+  .tech-button:hover {
+    transform: none;
+  }
+}
+
