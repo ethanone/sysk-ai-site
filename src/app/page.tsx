@@ -160,11 +160,11 @@ const Navigation = memo(({ uiText }: { uiText: UIText }) => {
               <Languages className="w-3.5 h-3.5" />
               <span className="text-xs tracking-wider">{language === 'zh' ? 'EN' : '中文'}</span>
             </button>
-            <Button className="bg-black text-white hover:bg-gray-900 px-5 py-2 text-xs md:text-sm font-light tracking-wider uppercase focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2 transition-all duration-300" asChild>
-              <a href={`mailto:uj.zhou@foxmail.com?subject=${encodeURIComponent(language === 'zh' ? '咨询羊肚菌产品,并获取样品' : 'Inquiry about Morel Mushrooms and Request Sample')}`}>
-                {uiText.navigation.requestSample}
-              </a>
-            </Button>
+          <Button className="cta-button px-5 py-2 text-xs md:text-sm tracking-wider uppercase" asChild>
+            <a href={`mailto:uj.zhou@foxmail.com?subject=${encodeURIComponent(language === 'zh' ? '咨询羊肚菌产品,并获取样品' : 'Inquiry about Morel Mushrooms and Request Sample')}`}>
+              {uiText.navigation.requestSample}
+            </a>
+          </Button>
           </div>
 
           {/* Mobile Menu Button - 优化触摸区域 */}
@@ -220,7 +220,7 @@ const Navigation = memo(({ uiText }: { uiText: UIText }) => {
                 <Languages className="w-5 h-5" />
                 <span>{uiText.navigation.switchToEnglish}</span>
               </button>
-              <Button className="w-full mt-4 mx-2 tech-button bg-black text-white min-h-[48px] text-base" asChild>
+              <Button className="w-full mt-4 mx-2 cta-button min-h-[48px] text-base" asChild>
                 <a href={`mailto:uj.zhou@foxmail.com?subject=${encodeURIComponent(language === 'zh' ? '咨询羊肚菌产品,并获取样品' : 'Inquiry about Morel Mushrooms and Request Sample')}`}>
                   {uiText.navigation.requestSample}
                 </a>
@@ -234,38 +234,58 @@ const Navigation = memo(({ uiText }: { uiText: UIText }) => {
 });
 Navigation.displayName = "Navigation";
 
-// Hero Section
+// Hero Section - 参考 Starter Story 和 getdbt 的社会证明设计
 const HeroSection = memo(({ companyData, uiText }: { companyData: CompanyData; uiText: UIText }) => {
   const { language } = useLanguage();
   return (
   <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 md:pt-24 lg:pt-32 bg-white">
-    <div className="relative z-10 container mx-auto max-w-5xl px-4 sm:px-6 md:px-8 lg:px-12 text-center">
+    {/* 统计数据横幅 - 参考 Starter Story */}
+    <div className="absolute top-20 md:top-24 left-0 right-0 z-20 bg-gray-50 border-b border-gray-100 py-3 md:py-4">
+      <div className="container mx-auto max-w-6xl px-4">
+        <div className="flex flex-wrap items-center justify-center gap-4 md:gap-8 text-xs md:text-sm">
+          <div className="flex items-center gap-2">
+            <CheckCircle2 className="w-4 h-4 text-green-600" />
+            <span className="font-medium text-gray-700">{language === 'zh' ? '1000吨年产能' : '1000 Tons Annual Capacity'}</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <Shield className="w-4 h-4 text-blue-600" />
+            <span className="font-medium text-gray-700">SC · HACCP · ISO 22000</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <TrendingUp className="w-4 h-4 text-orange-600" />
+            <span className="font-medium text-gray-700">{language === 'zh' ? '三阶段品控体系' : '3-Stage QC System'}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div className="relative z-10 container mx-auto max-w-5xl px-4 sm:px-6 md:px-8 lg:px-12 text-center mt-12">
       <motion.div {...fadeInUp}>
-        {/* 参考 Supima 的极简设计 - 小标签 + 超大标题 */}
+        {/* 小标签 */}
         <p className="mb-4 md:mb-6 text-gray-500 font-light text-xs md:text-sm tracking-[0.15em] uppercase">
           {companyData.companyInfo.founded && `${language === 'zh' ? '成立于' : 'Founded in'} ${companyData.companyInfo.founded} · `}{companyData.companyInfo.tagline}
         </p>
         
-        {/* 超大标题 - 参考 Supima 的极简风格 */}
+        {/* 超大标题 */}
         <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-extralight mb-8 md:mb-12 lg:mb-16 leading-[0.95] tracking-[-0.02em] text-black">
           {companyData.companyInfo.slogan}
         </h1>
         
-        {/* 副标题 - 更简洁 */}
+        {/* 副标题 */}
         <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 mb-8 md:mb-10 max-w-2xl mx-auto font-light leading-[1.6]">
           {companyData.companyInfo.name}{language === 'zh' ? '专注于' : ' focuses on '}{companyData.companyInfo.focus}
         </p>
         
-        {/* 描述文字 - 更小更精致 */}
+        {/* 描述文字 */}
         <p className="text-sm sm:text-base md:text-lg text-gray-500 mb-12 md:mb-16 max-w-xl mx-auto font-light leading-[1.7]">
           {companyData.aboutUs.mission}
         </p>
         
-        {/* 参考 Supima 和 Foundry 的极简按钮设计 */}
+        {/* CTA 按钮 - 主按钮改为橙色 */}
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
           <Button 
             size="lg" 
-            className="bg-black text-white hover:bg-gray-900 px-8 sm:px-10 py-3 sm:py-3.5 text-sm sm:text-base font-light tracking-wider uppercase focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2 transition-all duration-300 w-full sm:w-auto min-h-[48px] touch-manipulation" 
+            className="cta-button px-8 sm:px-10 py-3 sm:py-3.5 text-sm sm:text-base tracking-wider uppercase w-full sm:w-auto min-h-[48px] touch-manipulation" 
             asChild
           >
             <a href="#services" aria-label={uiText.hero.learnMore}>
@@ -275,7 +295,7 @@ const HeroSection = memo(({ companyData, uiText }: { companyData: CompanyData; u
           <Button 
             size="lg" 
             variant="outline" 
-            className="border border-black text-black hover:bg-black hover:text-white px-8 sm:px-10 py-3 sm:py-3.5 text-sm sm:text-base font-light tracking-wider uppercase focus-visible:outline-2 focus-visible:outline-black focus-visible:outline-offset-2 transition-all duration-300 w-full sm:w-auto min-h-[48px] touch-manipulation" 
+            className="secondary-button px-8 sm:px-10 py-3 sm:py-3.5 text-sm sm:text-base tracking-wider uppercase w-full sm:w-auto min-h-[48px] touch-manipulation" 
             asChild
           >
             <a href="#contact" aria-label={uiText.hero.contactUs}>
@@ -286,7 +306,7 @@ const HeroSection = memo(({ companyData, uiText }: { companyData: CompanyData; u
       </motion.div>
     </div>
     
-    {/* 简洁的滚动指示器 */}
+    {/* 滚动指示器 */}
     <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2">
       <ChevronRight className="w-5 h-5 text-gray-400 rotate-90 animate-bounce" />
     </div>
@@ -321,18 +341,18 @@ const FocusAreasSection = memo(({ companyData, uiText }: { companyData: CompanyD
         const Icon = iconMap[area.icon as keyof typeof iconMap] || Sparkles;
         return (
           <motion.div key={index} variants={fadeInUp}>
-            <Card className="group h-full bg-white border-0 focus-visible:outline-2 focus-visible:outline-black focus-visible:outline-offset-2">
-              <CardHeader className="pb-6">
+            <Card className="tech-card group h-full bg-white focus-visible:outline-2 focus-visible:outline-black focus-visible:outline-offset-2 p-6 md:p-8">
+              <CardHeader className="pb-6 p-0">
                 <div 
-                  className="w-10 h-10 mb-6 flex items-center justify-center transition-opacity duration-300 group-hover:opacity-70"
+                  className="w-12 h-12 mb-6 flex items-center justify-center bg-gray-50 rounded-lg transition-all duration-300 group-hover:bg-gray-100"
                 >
-                  <Icon className="w-5 h-5 text-black" />
+                  <Icon className="w-6 h-6 text-black" />
                 </div>
-                <CardTitle className="text-base md:text-lg font-light text-black mb-4 tracking-tight">
+                <CardTitle className="text-lg md:text-xl font-medium text-black mb-3 tracking-tight">
                   {area.name}
                 </CardTitle>
               </CardHeader>
-              <CardContent>
+              <CardContent className="p-0">
                 <p className="text-gray-600 leading-[1.7] font-light text-sm md:text-base">{area.description}</p>
               </CardContent>
             </Card>
@@ -383,6 +403,47 @@ const AboutSection = memo(({ companyData, uiText }: { companyData: CompanyData; 
 ));
 AboutSection.displayName = "AboutSection";
 
+// Stats Section - 参考 getdbt 的大数字展示
+const StatsSection = memo(({ language }: { language: 'zh' | 'en' }) => (
+  <Section className="bg-gradient-to-br from-gray-50 to-white">
+    <motion.div {...fadeInUp} className="text-center mb-12 md:mb-16">
+      <p className="mb-4 text-gray-500 font-light text-xs md:text-sm tracking-[0.15em] uppercase">
+        {language === 'zh' ? '值得信赖的数字' : 'Trusted Numbers'}
+      </p>
+      <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extralight mb-6 tracking-[-0.02em] text-black">
+        {language === 'zh' ? '品质与规模的完美结合' : 'Quality Meets Scale'}
+      </h2>
+    </motion.div>
+    
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
+      <motion.div {...fadeInUp} transition={{ delay: 0.1 }} className="text-center">
+        <div className="stat-number mb-2">1000</div>
+        <h3 className="text-lg md:text-xl font-medium text-black mb-2">{language === 'zh' ? '吨年产能' : 'Tons Annual Capacity'}</h3>
+        <p className="text-sm text-gray-600 font-light">{language === 'zh' ? '稳定供应全球市场' : 'Stable global supply'}</p>
+      </motion.div>
+      
+      <motion.div {...fadeInUp} transition={{ delay: 0.2 }} className="text-center">
+        <div className="stat-number mb-2">3</div>
+        <h3 className="text-lg md:text-xl font-medium text-black mb-2">{language === 'zh' ? '阶段品控' : 'Stage QC System'}</h3>
+        <p className="text-sm text-gray-600 font-light">{language === 'zh' ? '创新三阶段质量控制' : 'Innovative 3-stage quality control'}</p>
+      </motion.div>
+      
+      <motion.div {...fadeInUp} transition={{ delay: 0.3 }} className="text-center">
+        <div className="stat-number mb-2">3</div>
+        <h3 className="text-lg md:text-xl font-medium text-black mb-2">{language === 'zh' ? '国际认证' : 'International Certifications'}</h3>
+        <p className="text-sm text-gray-600 font-light">SC · HACCP · ISO 22000</p>
+      </motion.div>
+      
+      <motion.div {...fadeInUp} transition={{ delay: 0.4 }} className="text-center">
+        <div className="stat-number mb-2">100%</div>
+        <h3 className="text-lg md:text-xl font-medium text-black mb-2">{language === 'zh' ? '可追溯性' : 'Traceability'}</h3>
+        <p className="text-sm text-gray-600 font-light">{language === 'zh' ? '全程透明，品质保证' : 'Full transparency, quality guaranteed'}</p>
+      </motion.div>
+    </div>
+  </Section>
+));
+StatsSection.displayName = "StatsSection";
+
 // Core Advantages Section - 参考 Foundry 的极简设计
 const AdvantagesSection = memo(({ companyData, uiText }: { companyData: CompanyData; uiText: UIText }) => (
   <Section id="services" className="bg-white">
@@ -404,20 +465,20 @@ const AdvantagesSection = memo(({ companyData, uiText }: { companyData: CompanyD
             {...fadeInUp}
             transition={{ delay: index * 0.1 }}
           >
-            <Card className="h-full bg-white border-0">
-              <CardHeader>
-                <div className="flex items-start space-x-4 mb-6">
-                  <div className="w-8 h-8 flex items-center justify-center flex-shrink-0 mt-1">
-                    <Icon className="w-4 h-4 text-black" />
+            <Card className="tech-card h-full bg-white p-6 md:p-8">
+              <CardHeader className="p-0 mb-6">
+                <div className="flex items-start space-x-4">
+                  <div className="w-10 h-10 flex items-center justify-center flex-shrink-0 bg-gray-50 rounded-lg">
+                    <Icon className="w-5 h-5 text-black" />
                   </div>
-                  <CardTitle className="text-lg md:text-xl font-light text-black tracking-tight">{advantage.title}</CardTitle>
+                  <CardTitle className="text-xl md:text-2xl font-medium text-black tracking-tight">{advantage.title}</CardTitle>
                 </div>
               </CardHeader>
-              <CardContent>
+              <CardContent className="p-0">
                 <p className="text-gray-600 leading-[1.7] mb-6 font-light text-sm md:text-base">{advantage.description}</p>
                 <div className="flex flex-wrap gap-2">
                   {advantage.highlights.map((highlight, idx) => (
-                    <span key={idx} className="text-xs text-gray-500 font-light border-0">
+                    <span key={idx} className="stat-badge">
                       {highlight}
                     </span>
                   ))}
@@ -505,13 +566,13 @@ const CaseStudiesSection = memo(({ companyData, uiText }: { companyData: Company
             {...fadeInUp}
             transition={{ delay: index * 0.1 }}
           >
-            <Card className="group h-full overflow-hidden bg-white border-0">
-              <CardHeader>
+            <Card className="tech-card group h-full overflow-hidden bg-white p-6 md:p-8">
+              <CardHeader className="p-0 mb-6">
                 <div className="mb-6">
-                  <p className="mb-2 text-xs text-gray-500 font-light tracking-wider uppercase">
+                  <span className="stat-badge mb-3 inline-block">
                     {caseStudy.category}
-                  </p>
-                  <CardTitle className="text-lg md:text-xl font-light mb-3 text-black tracking-tight">
+                  </span>
+                  <CardTitle className="text-xl md:text-2xl font-medium mb-3 text-black tracking-tight">
                     {caseStudy.title}
                   </CardTitle>
                   <CardDescription className="text-gray-600 text-sm md:text-base font-light leading-[1.7]">
@@ -520,13 +581,13 @@ const CaseStudiesSection = memo(({ companyData, uiText }: { companyData: Company
                 </div>
               </CardHeader>
 
-              <CardContent className="space-y-6">
+              <CardContent className="space-y-6 p-0">
                 {/* Technologies */}
                 <div>
                   <h4 className="font-light text-xs text-gray-500 mb-3 tracking-wider uppercase">{uiText.cases.technologies}</h4>
                   <div className="flex flex-wrap gap-2">
                     {caseStudy.technologies.map((tech, idx) => (
-                      <span key={idx} className="text-xs text-gray-500 font-light">
+                      <span key={idx} className="stat-badge">
                         {tech}
                       </span>
                     ))}
@@ -638,7 +699,7 @@ const ContactSection = memo(({ companyData, uiText }: { companyData: CompanyData
           <p className="mb-8 opacity-80 text-sm md:text-base font-light leading-[1.7]">
             {companyData.aboutUs.vision}
           </p>
-          <Button size="lg" className="w-full bg-white text-black hover:bg-gray-100 px-8 py-3 text-sm font-light tracking-wider uppercase transition-all duration-300" asChild>
+          <Button size="lg" className="w-full cta-button px-8 py-3 text-sm tracking-wider uppercase" asChild>
             <a href={`mailto:${companyData.contact.email}?subject=${encodeURIComponent(language === 'zh' ? '咨询羊肚菌产品与合作' : 'Inquiry about Morel Mushrooms & Cooperation')}`}>
               {uiText.contact.cta}
             </a>
@@ -757,6 +818,7 @@ export default function HomePage() {
     <main className="min-h-screen">
       <Navigation uiText={uiText} />
       <HeroSection companyData={companyData} uiText={uiText} />
+      <StatsSection language={language} />
       <FocusAreasSection companyData={companyData} uiText={uiText} />
       <AboutSection companyData={companyData} uiText={uiText} />
       <AdvantagesSection companyData={companyData} uiText={uiText} />

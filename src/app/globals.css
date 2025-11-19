@@ -44,23 +44,24 @@
 }
 
 :root {
-  --radius: 0.5rem; /* 更小的圆角，更现代 */
+  --radius: 0.5rem;
   --card: #FFFFFF;
-  --card-foreground: #0A0A0A; /* 更深的文字，参考 Foundry */
+  --card-foreground: #0A0A0A;
   --popover: #FFFFFF;
   --popover-foreground: #0A0A0A;
-  --primary: #000000; /* 黑色主色，更优雅专业 */
+  --primary: #000000; /* 主色 */
   --primary-foreground: #FFFFFF;
-  --secondary: #6B7280; /* 中性灰，参考 Supima */
+  --secondary: #6B7280;
   --secondary-foreground: #FFFFFF;
-  --muted: #FAFAFA; /* 更浅的背景 */
+  --muted: #FAFAFA;
   --muted-foreground: #6B7280;
-  --accent: #000000; /* 黑色强调 */
+  --accent: #FF6B35; /* 橙色 CTA - 参考 getdbt 和 Starter Story */
   --accent-foreground: #FFFFFF;
+  --accent-hover: #FF8C42; /* 橙色 hover 状态 */
   --destructive: #EF4444;
-  --border: #E5E7EB; /* 更淡的边框 */
+  --border: #E5E7EB;
   --input: #F3F4F6;
-  --ring: #000000;
+  --ring: #FF6B35;
   --chart-1: #000000;
   --chart-2: #6B7280;
   --chart-3: #9CA3AF;
@@ -75,7 +76,8 @@
   --sidebar-border: #E5E7EB;
   --sidebar-ring: #000000;
   --background: #FFFFFF;
-  --foreground: #0A0A0A; /* 更深的文字 */
+  --foreground: #0A0A0A;
+  --stat-bg: #F9FAFB; /* 统计数据背景 */
 }
 
 .dark {
@@ -709,59 +711,131 @@ a[href^="http"]:not(.tech-button):hover::after {
   letter-spacing: -0.03em; /* 更紧凑的字距 */
 }
 
-/* 极简的卡片效果 - 参考 Supima 和 Foundry 的简约设计 */
+/* 优化的卡片效果 - 参考 Starter Story 和 getdbt */
 .tech-card {
   position: relative;
   background: #FFFFFF;
-  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.tech-card:focus-visible {
-  outline: 2px solid #000000;
-  outline-offset: 2px;
+  border: 1px solid #E5E7EB;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 12px;
 }
 
 .tech-card:hover {
-  opacity: 0.8;
+  border-color: #D1D5DB;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transform: translateY(-4px);
+}
+
+.tech-card:focus-visible {
+  outline: 2px solid #FF6B35;
+  outline-offset: 2px;
+}
+
+/* 数据标签 - 参考 Starter Story */
+.stat-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  background: #F9FAFB;
+  border: 1px solid #E5E7EB;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #6B7280;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* 大数字展示 - 参考 getdbt */
+.stat-number {
+  font-size: 4rem;
+  font-weight: 200;
+  line-height: 1;
+  color: #000000;
+  letter-spacing: -0.02em;
+}
+
+@media (max-width: 768px) {
+  .stat-number {
+    font-size: 3rem;
+  }
+}
+
+/* 公告栏 - 参考 getdbt */
+.announcement-bar {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #FFFFFF;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
 }
 
 /* 移动端优化 */
 @media (hover: none) {
   .tech-card:hover {
-    opacity: 1;
+    transform: none;
   }
 }
 
-/* 极简的按钮效果 - 参考 Supima 和 Foundry */
-.tech-button {
+/* 橙色 CTA 按钮 - 参考 getdbt 和 Starter Story */
+.cta-button {
   position: relative;
-  background: #000000;
+  background: #FF6B35;
   color: #FFFFFF;
-  border: 1px solid #000000;
+  border: 2px solid #FF6B35;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  font-weight: 300;
-  letter-spacing: 0.1em;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  user-select: none;
+  box-shadow: 0 4px 14px 0 rgba(255, 107, 53, 0.25);
+}
+
+.cta-button:hover {
+  background: #FF8C42;
+  border-color: #FF8C42;
+  box-shadow: 0 6px 20px 0 rgba(255, 107, 53, 0.35);
+  transform: translateY(-2px);
+}
+
+.cta-button:active {
+  background: #FF5722;
+  transform: translateY(0);
+}
+
+.cta-button:focus-visible {
+  outline: 2px solid #FF6B35;
+  outline-offset: 2px;
+}
+
+/* 次要按钮 - 保持黑色 */
+.secondary-button {
+  position: relative;
+  background: #FFFFFF;
+  color: #000000;
+  border: 2px solid #000000;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  font-weight: 500;
+  letter-spacing: 0.05em;
   cursor: pointer;
   user-select: none;
 }
 
-.tech-button:focus-visible {
-  outline: 2px solid #FFFFFF;
-  outline-offset: 2px;
-}
-
-.tech-button:hover {
-  background: #1A1A1A;
-}
-
-.tech-button:active {
+.secondary-button:hover {
   background: #000000;
+  color: #FFFFFF;
+}
+
+.secondary-button:focus-visible {
+  outline: 2px solid #000000;
+  outline-offset: 2px;
 }
 
 /* 移动端优化 */
 @media (hover: none) {
-  .tech-button:hover {
-    background: #000000;
+  .cta-button:hover {
+    transform: none;
   }
 }
 
