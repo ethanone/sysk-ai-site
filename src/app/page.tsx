@@ -81,8 +81,10 @@ type SectionProps = {
 };
 
 const Section = memo(({ children, className = "", id, fullHeight = true }: SectionProps) => {
-  const layoutClass = fullHeight ? "min-h-screen flex items-center justify-center" : "";
-  const spacingClass = fullHeight ? "py-20 sm:py-24 md:py-32" : "py-8 sm:py-10 md:py-12";
+  // 移动端不使用 min-h-screen，避免大片空白
+  const layoutClass = fullHeight ? "md:min-h-screen flex items-center justify-center" : "";
+  // 移动端使用更紧凑的 padding
+  const spacingClass = fullHeight ? "py-12 sm:py-16 md:py-24" : "py-8 sm:py-10 md:py-12";
 
   return (
     <section
