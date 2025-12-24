@@ -11,9 +11,24 @@ import { motion } from "framer-motion";
 import {
   Languages,
   Bot,
-  Zap,
+  Target,
+  Eye,
+  Sparkles,
+  FileText,
   TrendingUp,
-  Clock,
+  Search,
+  CheckCircle2,
+  Zap,
+  Heart,
+  Users,
+  Star,
+  Image as ImageIcon,
+  Palette,
+  Type,
+  Layers,
+  BookOpen,
+  Video,
+  Settings,
 } from "lucide-react";
 import companyDataZh from "@/data/companyData.json";
 import companyDataEn from "@/data/companyData.en.json";
@@ -60,8 +75,14 @@ export default function HomePage() {
   const [isChatModalOpen, setIsChatModalOpen] = useState(false);
   const [isProjectModalOpen, setIsProjectModalOpen] = useState(false);
 
+  // 图标映射
+  const iconMap: Record<string, any> = {
+    Target, Eye, Sparkles, FileText, TrendingUp, Search, CheckCircle2,
+    Zap, Heart, Users, Star, ImageIcon, Palette, Type, Layers, BookOpen, Video, Settings
+  };
+
   return (
-    <main className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-white">
+    <main className="min-h-screen bg-gradient-to-br from-white via-[#FFFCF9] to-white">
       <LanguageToggle uiText={uiText} />
       
       {/* 聊天模态框 */}
@@ -77,7 +98,7 @@ export default function HomePage() {
       <section className="min-h-screen flex items-center justify-center px-4 py-20">
         <div className="container mx-auto max-w-6xl text-center">
           <motion.div {...fadeInUp}>
-            {/* Logo - 大气简洁设计 */}
+            {/* Logo */}
             <div className="mb-12 sm:mb-16 flex justify-center">
               <motion.div 
                 initial={{ scale: 0.9, opacity: 0 }}
@@ -87,7 +108,7 @@ export default function HomePage() {
               >
                 <Image
                   src="/images/team/ChatGPT_Image_2025年12月16日_20_59_50-removebg-preview.png"
-                  alt="工厂AI数字员工"
+                  alt={companyData.companyInfo.name}
                   width={240}
                   height={240}
                   className="object-contain drop-shadow-2xl w-full h-full"
@@ -97,7 +118,7 @@ export default function HomePage() {
               </motion.div>
             </div>
 
-            {/* 标签 - 简约苹果风格 */}
+            {/* 标签 */}
             <motion.div 
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -117,7 +138,7 @@ export default function HomePage() {
               className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-[1.1] tracking-tight"
             >
               <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
-                工厂AI数字员工
+                {companyData.companyInfo.name}
               </span>
             </motion.h1>
 
@@ -154,7 +175,7 @@ export default function HomePage() {
                 className="cta-button px-12 py-7 text-lg font-semibold tracking-wide w-full sm:w-auto min-h-[64px] shadow-xl hover:shadow-2xl transition-all"
               >
                 <Bot className="w-6 h-6 mr-3" />
-                {language === 'zh' ? '开始使用' : 'Get Started'}
+                {language === 'zh' ? '开始定位' : 'Get Started'}
               </Button>
               <Button 
                 size="lg" 
@@ -166,57 +187,264 @@ export default function HomePage() {
               </Button>
             </motion.div>
 
-            {/* 特性卡片 */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-              {[
-                {
-                  icon: Clock,
-                  title: language === 'zh' ? '7×24小时服务' : '24/7 Service',
-                  desc: language === 'zh' ? '全天候智能助手' : 'Round-the-clock AI assistant',
-                  color: '#8B2F39'
-                },
-                {
-                  icon: Zap,
-                  title: language === 'zh' ? '快速响应' : 'Fast Response',
-                  desc: language === 'zh' ? '秒级智能回复' : 'Second-level response',
-                  color: '#6B4C7A'
-                },
-                {
-                  icon: TrendingUp,
-                  title: language === 'zh' ? '效率提升' : 'Efficiency Boost',
-                  desc: language === 'zh' ? '降本增效40%' : '40% efficiency improvement',
-                  color: '#C9A872'
-                },
-              ].map((feature, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.7 + index * 0.1, duration: 0.5 }}
-                  viewport={{ once: true }}
-                  className="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-primary/20"
-                >
-                  <div 
-                    className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 mx-auto"
-                    style={{ backgroundColor: feature.color + '15' }}
+            {/* 核心服务卡片 */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+              {companyData.focusAreas.map((area, index) => {
+                const Icon = iconMap[area.icon] || Target;
+                return (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.7 + index * 0.1, duration: 0.5 }}
+                    viewport={{ once: true }}
+                    className="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-primary/20"
                   >
-                    <feature.icon className="w-8 h-8" style={{ color: feature.color }} />
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3 text-center">
-                    {feature.title}
-                  </h3>
-                  <p className="text-gray-600 text-base text-center leading-relaxed">
-                    {feature.desc}
-                  </p>
-                </motion.div>
-              ))}
+                    <div 
+                      className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 mx-auto"
+                      style={{ backgroundColor: area.color + '15' }}
+                    >
+                      <Icon className="w-8 h-8" style={{ color: area.color }} />
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-3 text-center">
+                      {area.name}
+                    </h3>
+                    <p className="text-gray-600 text-sm text-center leading-relaxed">
+                      {area.description}
+                    </p>
+                  </motion.div>
+                );
+              })}
             </div>
           </motion.div>
         </div>
       </section>
 
+      {/* 品牌定位工作流 Section */}
+      {companyData.brandPositioning && (
+        <section className="py-20 px-4 bg-gradient-to-b from-white to-[#F5F1ED]">
+          <div className="container mx-auto max-w-7xl">
+            <motion.div {...fadeInUp} className="text-center mb-16">
+              <span className="stat-badge mb-4 inline-block">
+                {uiText.brandPositioning.badge}
+              </span>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                {uiText.brandPositioning.title}
+                <span className="text-primary"> {uiText.brandPositioning.titleHighlight}</span>
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                {uiText.brandPositioning.subtitle}
+              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {companyData.brandPositioning.agents.map((agent, index) => {
+                const Icon = iconMap[agent.icon] || Target;
+                return (
+                  <motion.div
+                    key={agent.id}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1, duration: 0.5 }}
+                    viewport={{ once: true }}
+                    className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all border border-gray-100"
+                  >
+                    <div className="flex items-center mb-4">
+                      <div 
+                        className="w-12 h-12 rounded-xl flex items-center justify-center mr-4"
+                        style={{ backgroundColor: agent.color + '15' }}
+                      >
+                        <Icon className="w-6 h-6" style={{ color: agent.color }} />
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-bold text-gray-900">{agent.name}</h3>
+                        <span className="text-xs text-gray-500">Agent {index + 1}</span>
+                      </div>
+                    </div>
+                    <p className="text-gray-600 text-sm mb-4 leading-relaxed">
+                      {agent.description}
+                    </p>
+                    <div className="space-y-2 pt-4 border-t border-gray-100">
+                      <div>
+                        <span className="text-xs font-semibold text-gray-500">输入:</span>
+                        <p className="text-xs text-gray-600 mt-1">{agent.input.join('、')}</p>
+                      </div>
+                      <div>
+                        <span className="text-xs font-semibold text-gray-500">输出:</span>
+                        <p className="text-xs text-gray-600 mt-1">{agent.output.join('、')}</p>
+                      </div>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* 品牌识别系统 Section */}
+      {companyData.brandIdentity && (
+        <section className="py-20 px-4 bg-white">
+          <div className="container mx-auto max-w-7xl">
+            <motion.div {...fadeInUp} className="text-center mb-16">
+              <span className="stat-badge mb-4 inline-block">
+                {uiText.brandIdentity.badge}
+              </span>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                {uiText.brandIdentity.title}
+                <span className="text-primary"> {uiText.brandIdentity.titleHighlight}</span>
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                {uiText.brandIdentity.subtitle}
+              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+              {companyData.brandIdentity.features.map((feature, index) => {
+                const Icon = iconMap[feature.icon] || ImageIcon;
+                return (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1, duration: 0.5 }}
+                    viewport={{ once: true }}
+                    className="bg-gradient-to-br from-white to-[#F5F1ED] rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all border border-gray-100 text-center"
+                  >
+                    <div className="w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-4 bg-primary/10">
+                      <Icon className="w-8 h-8 text-primary" />
+                    </div>
+                    <h3 className="text-lg font-bold text-gray-900 mb-2">{feature.name}</h3>
+                    <p className="text-sm text-gray-600 leading-relaxed">{feature.description}</p>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* 产品价值 Section */}
+      {companyData.productValue && (
+        <section className="py-20 px-4 bg-gradient-to-b from-[#F5F1ED] to-white">
+          <div className="container mx-auto max-w-7xl">
+            <motion.div {...fadeInUp} className="text-center mb-16">
+              <span className="stat-badge mb-4 inline-block">
+                {uiText.productValue.badge}
+              </span>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                {uiText.productValue.title}
+                <span className="text-primary"> {uiText.productValue.titleHighlight}</span>
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                {uiText.productValue.subtitle}
+              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {companyData.productValue.dimensions.map((dimension, index) => {
+                const Icon = iconMap[dimension.icon] || Star;
+                return (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1, duration: 0.5 }}
+                    viewport={{ once: true }}
+                    className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all border border-gray-100 text-center"
+                  >
+                    <div className="w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-6 bg-accent/10">
+                      <Icon className="w-8 h-8 text-accent" />
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-3">{dimension.name}</h3>
+                    <p className="text-gray-600 text-sm leading-relaxed">{dimension.description}</p>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* 品牌叙事系统 Section */}
+      {companyData.brandNarrative && (
+        <section className="py-20 px-4 bg-white">
+          <div className="container mx-auto max-w-7xl">
+            <motion.div {...fadeInUp} className="text-center mb-16">
+              <span className="stat-badge mb-4 inline-block">
+                {uiText.brandNarrative.badge}
+              </span>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                {uiText.brandNarrative.title}
+                <span className="text-primary"> {uiText.brandNarrative.titleHighlight}</span>
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                {uiText.brandNarrative.subtitle}
+              </p>
+            </motion.div>
+
+            <div className="space-y-8 max-w-5xl mx-auto">
+              {companyData.brandNarrative.workflow.map((step, index) => {
+                const Icon = iconMap[step.icon] || FileText;
+                return (
+                  <motion.div
+                    key={step.step}
+                    initial={{ opacity: 0, x: -30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.2, duration: 0.5 }}
+                    viewport={{ once: true }}
+                    className="bg-gradient-to-r from-white to-[#F5F1ED] rounded-2xl p-8 shadow-lg border border-gray-100"
+                  >
+                    <div className="flex items-start">
+                      <div className="flex-shrink-0">
+                        <div className="w-16 h-16 rounded-xl flex items-center justify-center bg-primary/10 mr-6">
+                          <Icon className="w-8 h-8 text-primary" />
+                        </div>
+                      </div>
+                      <div className="flex-1">
+                        <div className="flex items-center mb-3">
+                          <span className="text-sm font-semibold text-primary mr-3">步骤 {step.step}</span>
+                          <h3 className="text-2xl font-bold text-gray-900">{step.name}</h3>
+                        </div>
+                        <p className="text-gray-600 mb-4 leading-relaxed">{step.description}</p>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                          <div>
+                            <span className="text-xs font-semibold text-gray-500 block mb-2">输出内容:</span>
+                            <ul className="space-y-1">
+                              {step.output.map((item, i) => (
+                                <li key={i} className="text-sm text-gray-600 flex items-center">
+                                  <span className="w-1.5 h-1.5 rounded-full bg-primary mr-2"></span>
+                                  {item}
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                          {step.templates && (
+                            <div>
+                              <span className="text-xs font-semibold text-gray-500 block mb-2">模板库:</span>
+                              <ul className="space-y-1">
+                                {step.templates.map((template, i) => (
+                                  <li key={i} className="text-sm text-gray-600 flex items-center">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-accent mr-2"></span>
+                                    {template}
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Footer */}
-      <footer className="py-8 text-center border-t border-gray-200">
+      <footer className="py-8 text-center border-t border-gray-200 bg-white">
         <p className="text-sm text-gray-500">
           © {new Date().getFullYear()} {companyData.companyInfo.name}. {language === 'zh' ? '版权所有' : 'All rights reserved.'}
         </p>

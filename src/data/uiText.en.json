@@ -6,43 +6,67 @@
     "services": "Services",
     "cases": "Cases",
     "contact": "Contact",
-    "requestSample": "Start Analysis",
+    "requestSample": "Start Positioning",
     "switchLanguage": "Switch Language",
     "switchToEnglish": "Switch to Chinese"
   },
   "hero": {
     "learnMore": "Learn More",
-    "contactUs": "Start Analysis"
+    "contactUs": "Start Positioning"
   },
   "solutions": {
-    "badge": "Core Analysis Capabilities",
-    "title": "Guide engineers through multi-round interactive dialogue",
-    "titleHighlight": "Precise · Efficient · Professional",
-    "subtitle": "Based on standard methods such as MOST, MTM, and MODAPTS, providing professional analysis services including time study, motion analysis, OEE calculation, and line balancing."
+    "badge": "Core Capabilities",
+    "title": "5 Intelligent Agents Work Collaboratively",
+    "titleHighlight": "Professional · Efficient · Systematic",
+    "subtitle": "Based on multi-Agent workflow, providing end-to-end AI solutions for wine brands from positioning to narrative."
   },
   "focusAreas": {
-    "badge": "Core Service Areas",
+    "badge": "Core Services",
     "title": "Our",
     "titleHighlight": "Expertise",
-    "subtitle": "Committed to providing industrial engineers with precise analysis, calculation, and professional guidance"
+    "subtitle": "Committed to providing precise brand positioning and identity services for wine brands"
+  },
+  "brandPositioning": {
+    "badge": "Brand Positioning",
+    "title": "5 Agent Workflow",
+    "titleHighlight": "Systematic Brand Positioning",
+    "subtitle": "From market analysis to positioning strategy, 5 intelligent Agents work collaboratively to complete the entire brand positioning process"
+  },
+  "brandIdentity": {
+    "badge": "Brand Identity",
+    "title": "Output at Once",
+    "titleHighlight": "Complete AI Manual",
+    "subtitle": "Including Logo design guidance, color system, typography standards, visual elements and other complete brand identity system"
+  },
+  "productValue": {
+    "badge": "Product Value",
+    "title": "Clear Value Proposition",
+    "titleHighlight": "Differentiation Positioning",
+    "subtitle": "From functional value, emotional value, social value to differentiation value, comprehensively define product value"
+  },
+  "brandNarrative": {
+    "badge": "Brand Narrative",
+    "title": "Two-Step Strategy",
+    "titleHighlight": "Narrative Plan + Multimodal Scripts",
+    "subtitle": "First form a narrative plan, then generate multimodal scripts based on the plan, connect to professional tools for final output"
   },
   "dataSystem": {
     "badge": "Professional Methodology",
-    "title": "Based on international standard IE methods",
-    "titleHighlight": "Scientifically rigorous · Industry recognized",
-    "subtitle": "Adopt standard methodologies such as MOST, MTM, and MODAPTS, combined with AI technology, to provide accurate and reliable analysis results."
+    "title": "Based on Classic Brand Theory",
+    "titleHighlight": "Scientifically Rigorous · Industry Recognized",
+    "subtitle": "Adopt classic methodologies such as STP theory and positioning theory, combined with AI technology, to provide accurate and reliable brand positioning."
   },
   "about": {
     "badge": "About Us",
     "title": "Focus on",
-    "titleHighlight": "Industrial Engineering Intelligent Analysis",
+    "titleHighlight": "Brand AI Positioning",
     "coreGoal": "Core Mission",
     "vision": "Vision"
   },
   "advantages": {
     "badge": "Core Advantages",
     "title": "Why Choose",
-    "titleHighlight": "IE AI Expert"
+    "titleHighlight": "Brand AI Positioning Platform"
   },
   "team": {
     "badge": "Expert Team",
@@ -51,15 +75,15 @@
   },
   "testimonials": {
     "badge": "Client Cases",
-    "title": "Serving 500+ manufacturing enterprises with IE analysis",
-    "titleHighlight": "Precise calculation · Professional guidance",
-    "subtitle": "We are committed to helping engineers improve analysis efficiency and make scientific decisions through professional industrial engineering methodologies and AI technology."
+    "title": "Serving 500+ wine brands with brand positioning",
+    "titleHighlight": "Precise Positioning · Professional Guidance",
+    "subtitle": "We are committed to helping brands find unique value positioning through professional brand positioning methodologies and AI technology."
   },
   "cases": {
     "badge": "Success Cases",
     "title": "Practical Applications",
-    "titleHighlight": "of Industrial Engineering Analysis",
-    "subtitle": "Deep integration of professional methodologies and AI technology, creating tangible efficiency improvement value for customers",
+    "titleHighlight": "of Brand Positioning",
+    "subtitle": "Deep integration of professional methodologies and AI technology, creating tangible brand value improvement for customers",
     "technologies": "Core Methods",
     "painPoint": "Pain Point: ",
     "features": "Core Features",
@@ -67,14 +91,14 @@
   },
   "contact": {
     "badge": "Contact Us",
-    "title": "Get in touch with our industrial engineering experts",
+    "title": "Get in touch with our brand experts",
     "titleHighlight": "Start with a free trial",
     "titleSuffix": "",
-    "subtitle": "Apply for free analysis trial, get industrial engineering methodology materials, and learn about latest features and industry cases.",
+    "subtitle": "Apply for free positioning trial, get brand positioning methodology materials, and learn about latest features and industry cases.",
     "phoneLabel": "Phone",
     "emailLabel": "Email",
     "addressLabel": "Address",
-    "cta": "Start Analysis",
+    "cta": "Start Positioning",
     "values": "Our Core Values",
     "advisors": "Industry Expert Advisors"
   },
@@ -88,6 +112,6 @@
     "contact": "Contact Us",
     "allRightsReserved": "All rights reserved.",
     "foundedIn": "Founded in",
-    "focusOn": "Focus on Industrial Engineering Intelligent Analysis"
+    "focusOn": "Focus on Brand AI Positioning"
   }
 }

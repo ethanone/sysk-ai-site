@@ -1,128 +1,288 @@
 {
   "companyInfo": {
-    "name": "工厂AI数字员工",
-    "slogan": "让每个工厂都拥有AI数字员工",
-    "subtitle": "7×24小时智能助手，为您的工厂提供专业的生产管理、质量检测、设备运维等全方位AI服务。",
-    "tagline": "智能制造 · AI赋能",
-    "focus": "智能生产·AI质检·设备运维·数据分析",
-    "founded": "2020",
-    "website": "www.factory-ai.com"
+    "name": "品牌智能定位平台",
+    "slogan": "用AI重新定义品牌价值",
+    "subtitle": "基于多Agent工作流的智能品牌定位系统，为酒类品牌提供从定位到叙事的全链路AI解决方案。",
+    "tagline": "品牌定位 · AI赋能",
+    "focus": "品牌定位·品牌识别·产品价值·品牌叙事",
+    "founded": "2024",
+    "website": "www.brand-ai-platform.com"
   },
   "aboutUs": {
     "intro": [
-      "工业工程AI专家是专为制造业工程师打造的智能分析助手。我们深耕工业工程领域多年，深刻理解工程师在工时测定、动作分析、人机协作、OEE计算和产线平衡等方面的需求与挑战。",
-      "通过多轮交互式对话，我们引导您提供必要信息，运用专业的工业工程方法论，为您提供精准的计算结果和深度分析，帮助您做出科学决策。",
-      "我们的AI专家系统基于MOST、MTM、MODAPTS等标准工业工程方法，结合机器学习技术，为您提供专业、高效、可靠的工业工程分析服务。"
+      "品牌智能定位平台是专为酒类品牌打造的AI驱动品牌战略系统。我们通过5个智能Agent工作流，将品牌定位、品牌识别、产品价值、品牌叙事等核心环节系统化、智能化，让品牌战略从经验驱动走向数据驱动。",
+      "平台采用多Agent协作架构，每个Agent专注于品牌战略的特定环节，通过结构化对话和智能分析，为品牌提供精准的定位建议、完整的品牌识别体系、清晰的产品价值主张，以及多模态的品牌叙事方案。",
+      "我们的系统融合了品牌定位理论、视觉识别设计、内容营销策略和AI生成技术，为酒类品牌提供从战略到执行的一站式解决方案。"
     ],
-    "mission": "通过AI技术赋能工业工程师，提供工时测定、动作分析、OEE计算等专业分析服务。平台采用交互式对话方式，引导用户提供关键信息，生成专业的工业工程分析报告。",
-    "vision": "成为工业工程领域最专业的AI智能助手，用数据驱动精益生产，用AI赋能工程决策。",
+    "mission": "通过AI技术赋能品牌战略，为酒类品牌提供专业、高效、可落地的品牌定位与识别服务，让每个品牌都能找到独特的价值定位。",
+    "vision": "成为品牌战略领域最专业的AI智能平台，用数据驱动品牌决策，用AI赋能品牌创新。",
     "values": [
-      "专业性与易用性并重",
-      "精准计算与深度分析并重",
-      "理论方法与实践经验并重",
+      "专业性与创新性并重",
+      "战略深度与执行效率并重",
+      "理论方法与行业洞察并重",
       "持续学习与效果保障并重"
     ]
   },
   "coreAdvantages": [
     {
       "icon": "Shield",
-      "title": "多轮交互式对话",
-      "description": "通过结构化的对话流程，逐步引导工程师提供必要信息。系统会根据您的回答智能调整问题，确保获取完整准确的数据，提高分析效率。",
-      "highlights": ["智能问答", "逐步引导", "数据验证"]
+      "title": "多Agent工作流",
+      "description": "5个专业Agent协同工作，覆盖品牌定位全流程。每个Agent专注于特定环节，通过结构化对话引导，确保输出专业、完整、可落地。",
+      "highlights": ["智能协作", "专业分工", "流程化"]
     },
     {
       "icon": "CheckCircle2",
-      "title": "专业方法论支持",
-      "description": "基于MOST、MTM、MODAPTS等国际标准工业工程方法，结合六西格玛、精益生产理论，为您提供科学严谨的分析结果。",
-      "highlights": ["标准方法", "科学严谨", "行业认可"]
+      "title": "品牌定位Agent",
+      "description": "基于STP理论、定位理论等经典方法论，通过多轮对话分析市场、竞品、用户，输出精准的品牌定位策略。",
+      "highlights": ["理论支撑", "精准定位", "策略输出"]
     },
     {
       "icon": "Cpu",
-      "title": "精准计算分析",
-      "description": "采用先进的算法模型，精确计算工时、OEE、产线平衡率等关键指标。自动识别瓶颈工序，提供优化建议，帮助提升生产效率。",
-      "highlights": ["精准计算", "智能分析", "优化建议"]
+      "title": "品牌识别Agent",
+      "description": "一次性输出完整的品牌识别手册，包含Logo设计指导、色彩系统、字体规范、视觉元素等，确保品牌视觉一致性。",
+      "highlights": ["完整手册", "视觉规范", "一致性"]
     },
     {
       "icon": "TrendingUp",
-      "title": "专业报告生成",
-      "description": "自动生成结构化的专业报告，包含详细的计算过程、数据分析、可视化图表和改善建议，支持导出为PDF、Excel等多种格式。",
-      "highlights": ["专业报告", "可视化", "多格式导出"]
+      "title": "品牌叙事Agent",
+      "description": "两步走：先形成叙事计划，再基于计划生成多模态脚本（文字、图片、视频），对接专业工具输出成品。",
+      "highlights": ["叙事规划", "多模态生成", "专业输出"]
     }
   ],
   "focusAreas": [
     {
-      "name": "工时测定",
-      "icon": "TrendingUp",
-      "description": "标准工时、实测工时、预定工时计算",
-      "color": "#8B2F39"
+      "name": "品牌定位",
+      "icon": "Target",
+      "description": "5个Agent工作流，从市场分析到定位策略",
+      "color": "#722F37"
     },
     {
-      "name": "动作分析",
+      "name": "品牌识别",
+      "icon": "Eye",
+      "description": "一次性输出完整AI手册，指导品牌视觉系统",
+      "color": "#4A2C2A"
+    },
+    {
+      "name": "产品价值",
       "icon": "Sparkles",
-      "description": "MOST、MTM、MODAPTS动作分解",
-      "color": "#6B4C7A"
+      "description": "清晰的价值主张与差异化定位",
+      "color": "#D4AF37"
     },
     {
-      "name": "OEE计算",
+      "name": "品牌叙事",
       "icon": "FileText",
-      "description": "可用率、性能率、质量率分析",
-      "color": "#C9A872"
+      "description": "叙事计划 + 多模态脚本生成",
+      "color": "#8B6F47"
     }
   ],
+  "brandPositioning": {
+    "title": "品牌定位工作流",
+    "subtitle": "5个智能Agent协同工作，系统化完成品牌定位",
+    "agents": [
+      {
+        "id": "agent-1",
+        "name": "市场分析Agent",
+        "description": "分析目标市场、行业趋势、用户画像，为品牌定位提供数据基础",
+        "input": ["行业信息", "目标市场", "用户数据"],
+        "output": ["市场分析报告", "用户画像", "趋势洞察"],
+        "icon": "TrendingUp",
+        "color": "#722F37"
+      },
+      {
+        "id": "agent-2",
+        "name": "竞品分析Agent",
+        "description": "深度分析竞品定位、优势劣势、市场表现，找到差异化机会",
+        "input": ["竞品列表", "竞品资料"],
+        "output": ["竞品分析报告", "差异化机会", "定位建议"],
+        "icon": "Search",
+        "color": "#4A2C2A"
+      },
+      {
+        "id": "agent-3",
+        "name": "定位策略Agent",
+        "description": "基于STP理论和定位理论，输出精准的品牌定位策略",
+        "input": ["市场分析", "竞品分析", "品牌信息"],
+        "output": ["品牌定位策略", "目标用户", "价值主张"],
+        "icon": "Target",
+        "color": "#D4AF37"
+      },
+      {
+        "id": "agent-4",
+        "name": "定位验证Agent",
+        "description": "验证定位策略的可行性和市场接受度，提供优化建议",
+        "input": ["定位策略", "验证数据"],
+        "output": ["验证报告", "优化建议", "风险评估"],
+        "icon": "CheckCircle2",
+        "color": "#8B6F47"
+      },
+      {
+        "id": "agent-5",
+        "name": "定位输出Agent",
+        "description": "整合所有分析结果，输出完整的品牌定位方案和执行建议",
+        "input": ["所有Agent输出"],
+        "output": ["完整定位方案", "执行路线图", "KPI指标"],
+        "icon": "FileText",
+        "color": "#722F37"
+      }
+    ]
+  },
+  "brandIdentity": {
+    "title": "品牌识别系统",
+    "subtitle": "一次性输出完整AI手册，指导品牌视觉系统建设",
+    "features": [
+      {
+        "name": "Logo设计指导",
+        "description": "提供Logo设计方向、风格建议、应用规范",
+        "icon": "Image"
+      },
+      {
+        "name": "色彩系统",
+        "description": "定义主色、辅色、功能色，建立完整的色彩体系",
+        "icon": "Palette"
+      },
+      {
+        "name": "字体规范",
+        "description": "指定品牌字体、字号层级、排版规则",
+        "icon": "Type"
+      },
+      {
+        "name": "视觉元素",
+        "description": "图标系统、图形元素、摄影风格等视觉资产",
+        "icon": "Layers"
+      },
+      {
+        "name": "应用规范",
+        "description": "品牌在不同场景下的应用指南和禁忌",
+        "icon": "BookOpen"
+      }
+    ]
+  },
+  "productValue": {
+    "title": "产品价值定位",
+    "subtitle": "清晰的价值主张与差异化定位",
+    "dimensions": [
+      {
+        "name": "功能价值",
+        "description": "产品解决的核心问题与功能优势",
+        "icon": "Zap"
+      },
+      {
+        "name": "情感价值",
+        "description": "产品带来的情感体验与品牌联想",
+        "icon": "Heart"
+      },
+      {
+        "name": "社会价值",
+        "description": "产品体现的社会意义与文化价值",
+        "icon": "Users"
+      },
+      {
+        "name": "差异化价值",
+        "description": "与竞品相比的独特优势与不可替代性",
+        "icon": "Star"
+      }
+    ]
+  },
+  "brandNarrative": {
+    "title": "品牌叙事系统",
+    "subtitle": "两步走：叙事计划 + 多模态脚本生成",
+    "workflow": [
+      {
+        "step": 1,
+        "name": "叙事计划生成",
+        "description": "基于品牌定位和产品价值，生成完整的品牌叙事计划",
+        "output": [
+          "叙事主题",
+          "叙事结构",
+          "内容框架",
+          "传播策略"
+        ],
+        "icon": "FileText"
+      },
+      {
+        "step": 2,
+        "name": "多模态脚本生成",
+        "description": "基于叙事计划，调用优秀广告模板和社媒网红内容模板，生成多模态脚本",
+        "output": [
+          "文字脚本",
+          "图片脚本",
+          "视频脚本",
+          "社媒内容"
+        ],
+        "icon": "Video",
+        "templates": [
+          "优秀广告模板库",
+          "社媒网红内容模板",
+          "行业案例参考"
+        ]
+      },
+      {
+        "step": 3,
+        "name": "专业工具对接",
+        "description": "将生成的脚本对接专业设计工具和视频工具，输出成品",
+        "output": [
+          "设计文件",
+          "视频素材",
+          "社媒素材"
+        ],
+        "icon": "Settings"
+      }
+    ]
+  },
   "team": {
-    "intro": "平台由资深工业工程专家、AI算法工程师和制造业顾问组成。团队成员拥有丰富的工业工程实践经验和深厚的理论功底，致力于为工程师提供专业、高效的智能分析服务。",
+    "intro": "平台由资深品牌战略专家、AI算法工程师和视觉设计顾问组成。团队成员拥有丰富的品牌定位实践经验和深厚的理论功底，致力于为酒类品牌提供专业、高效的智能品牌服务。",
     "leadership": [
       {
-        "name": "工业工程专家团队",
-        "title": "方法论研究 · 标准制定",
-        "avatar": "/images/team/ie-expert.jpg",
-        "education": "工业工程硕士/博士",
-        "background": "20年+工业工程实践经验，精通MOST、MTM、MODAPTS等方法",
+        "name": "品牌战略专家团队",
+        "title": "定位理论 · 策略制定",
+        "avatar": "/images/team/brand-expert.jpg",
+        "education": "品牌管理硕士/博士",
+        "background": "20年+品牌定位实践经验，精通STP理论、定位理论等方法",
         "achievements": [
-          "参与多个国家级工业工程标准制定",
-          "服务500+制造企业工业工程咨询",
-          "培训工业工程师10000+人次"
+          "服务500+酒类品牌定位咨询",
+          "主导200+品牌重塑项目",
+          "培训品牌经理10000+人次"
         ],
-        "expertise": ["工时测定", "动作分析", "产线平衡", "精益生产"]
+        "expertise": ["品牌定位", "市场分析", "竞品分析", "品牌战略"]
       },
       {
         "name": "AI算法团队",
         "title": "智能分析 · 算法优化",
         "avatar": "/images/team/ai-team.jpg",
         "education": "人工智能专家",
-        "background": "专注于工业工程领域的AI应用，开发智能分析算法",
+        "background": "专注于品牌领域的AI应用，开发智能分析算法",
         "achievements": [
-          "研发多个工业工程AI模型",
-          "实现智能工时预测、瓶颈识别",
-          "计算精度达99%以上"
+          "研发多个品牌定位AI模型",
+          "实现智能市场分析和定位建议",
+          "分析准确度达95%以上"
         ],
-        "expertise": ["机器学习", "数据分析", "优化算法", "NLP"]
+        "expertise": ["机器学习", "数据分析", "NLP", "多模态生成"]
       },
       {
-        "name": "制造业顾问团队",
-        "title": "行业洞察 · 实践经验",
-        "avatar": "/images/team/industry-expert.jpg",
-        "education": "制造业管理专家",
-        "background": "长期服务于汽车、电子、机械等行业，深度理解现场管理",
+        "name": "视觉设计顾问团队",
+        "title": "品牌识别 · 视觉系统",
+        "avatar": "/images/team/design-expert.jpg",
+        "education": "视觉设计专家",
+        "background": "长期服务于酒类品牌，深度理解品牌视觉系统",
         "achievements": [
-          "主导200+产线优化项目",
-          "平均提升生产效率25%",
-          "降低制造成本15%"
+          "设计200+品牌识别系统",
+          "获得多项设计大奖",
+          "品牌视觉一致性提升40%"
         ],
-        "expertise": ["现场管理", "效率提升", "成本控制", "质量管理"]
+        "expertise": ["Logo设计", "色彩系统", "视觉规范", "品牌手册"]
       },
       {
-        "name": "产品技术团队",
-        "title": "用户体验 · 持续创新",
-        "avatar": "/images/team/service-team.jpg",
-        "education": "产品与技术专家",
-        "background": "致力于打造易用、专业的工业工程AI工具",
+        "name": "内容营销团队",
+        "title": "品牌叙事 · 内容创作",
+        "avatar": "/images/team/content-team.jpg",
+        "education": "内容营销专家",
+        "background": "致力于打造有影响力的品牌叙事和内容",
         "achievements": [
-          "用户满意度96%以上",
-          "月均处理分析请求50000+",
-          "系统响应时间<2秒"
+          "创作1000+品牌叙事案例",
+          "社媒内容平均互动率提升60%",
+          "品牌认知度提升50%"
         ],
-        "expertise": ["产品设计", "系统架构", "用户体验", "敏捷开发"]
+        "expertise": ["品牌叙事", "内容创作", "社媒营销", "多模态内容"]
       }
     ],
     "teamSize": {
@@ -130,128 +290,128 @@
       "research": "15+",
       "aiAlgorithm": "10+",
       "advisors": {
-        "medical": "工业工程资深顾问",
-        "power": "制造业实战专家",
-        "design": "精益生产专家"
+        "brand": "品牌战略资深顾问",
+        "design": "视觉设计实战专家",
+        "content": "内容营销专家"
       }
     }
   },
   "caseStudies": [
     {
       "id": "case-01",
-      "title": "汽车制造装配线工时测定",
-      "subtitle": "精准测定标准工时，优化产线配置",
-      "category": "工时测定",
-      "icon": "TrendingUp",
-      "color": "#8B2F39",
-      "technologies": ["MOST法", "标准工时", "产线平衡"],
-      "painPoint": "装配线各工位工时不均衡，导致生产瓶颈频发，整体效率低下。",
+      "title": "高端白酒品牌定位重塑",
+      "subtitle": "从传统到现代的品牌转型",
+      "category": "品牌定位",
+      "icon": "Target",
+      "color": "#722F37",
+      "technologies": ["STP理论", "定位策略", "市场分析"],
+      "painPoint": "传统白酒品牌面临年轻化挑战，需要重新定位以吸引新一代消费者。",
       "features": [
         {
-          "name": "精准工时测定",
-          "description": "采用MOST法对42个装配工序进行详细测定，建立标准工时数据库"
+          "name": "市场分析",
+          "description": "深度分析目标市场、用户画像、消费趋势，发现年轻化机会"
         },
         {
-          "name": "瓶颈分析",
-          "description": "自动识别瓶颈工序，分析产线平衡率，提供优化方案"
+          "name": "定位策略",
+          "description": "基于STP理论，输出\"新中式轻奢\"的品牌定位，平衡传统与现代"
         },
         {
-          "name": "工位优化",
-          "description": "基于工时数据重新分配作业内容，提升产线平衡率至95%"
+          "name": "品牌识别",
+          "description": "设计全新的品牌视觉系统，保持传统元素的同时融入现代设计"
         }
       ],
-      "outcome": "产线平衡率从68%提升至95%，生产效率提升40%，消除了主要瓶颈工序，年增产值2000万元。",
-      "image": "/images/case-government.webp"
+      "outcome": "品牌认知度提升60%，年轻用户占比从15%提升至45%，品牌价值提升200%。",
+      "image": "/images/case-wine-01.webp"
     },
     {
       "id": "case-02",
-      "title": "电子厂OEE综合分析",
-      "subtitle": "全面提升设备综合效率",
-      "category": "OEE计算",
-      "icon": "CheckCircle2",
-      "color": "#6B4C7A",
-      "technologies": ["OEE分析", "停机分析", "效率提升"],
-      "painPoint": "设备利用率低，故障频发，OEE长期徘徊在60%左右。",
+      "title": "精酿啤酒品牌识别系统",
+      "subtitle": "从0到1建立完整品牌视觉",
+      "category": "品牌识别",
+      "icon": "Eye",
+      "color": "#4A2C2A",
+      "technologies": ["品牌识别", "视觉系统", "AI手册"],
+      "painPoint": "新品牌缺乏统一的视觉识别系统，品牌形象混乱。",
       "features": [
         {
-          "name": "OEE实时监控",
-          "description": "建立OEE计算模型，实时监控可用率、性能率、质量率三大指标"
+          "name": "品牌识别Agent",
+          "description": "一次性输出完整的品牌识别手册，包含Logo、色彩、字体、视觉元素"
         },
         {
-          "name": "六大损失分析",
-          "description": "自动分析故障停机、换模调整、空转短停、速度降低、启动损失、不良返工六大损失"
+          "name": "视觉系统",
+          "description": "建立\"精酿文化+现代设计\"的视觉体系，体现品牌个性"
         },
         {
-          "name": "改善方案",
-          "description": "针对主要损失源提供针对性改善建议和行动计划"
+          "name": "应用规范",
+          "description": "制定详细的应用指南，确保品牌视觉一致性"
         }
       ],
-      "outcome": "OEE从60%提升至85%，设备故障率降低70%，产能提升42%，年节约成本500万元。",
-      "image": "/images/case-protection.webp"
+      "outcome": "品牌视觉一致性提升80%，品牌识别度提升70%，用户对品牌的记忆度提升50%。",
+      "image": "/images/case-wine-02.webp"
     },
     {
       "id": "case-03",
-      "title": "机械加工动作分析优化",
-      "subtitle": "基于MTM方法的动作改善",
-      "category": "动作分析",
-      "icon": "Home",
+      "title": "葡萄酒品牌叙事计划",
+      "subtitle": "打造有温度的品牌故事",
+      "category": "品牌叙事",
+      "icon": "FileText",
       "color": "#D4AF37",
-      "technologies": ["MTM分析", "动作经济", "效率提升"],
+      "technologies": ["品牌叙事", "内容策略", "多模态生成"],
       "features": [
         {
-          "name": "MTM动作分解",
-          "description": "对关键工序进行详细的MTM动作分解，识别无效动作"
+          "name": "叙事计划",
+          "description": "基于品牌定位，生成\"传承与创新\"的叙事主题和内容框架"
         },
         {
-          "name": "动作经济原则",
-          "description": "应用22条动作经济原则，优化作业动作和工位布局"
+          "name": "多模态脚本",
+          "description": "生成文字、图片、视频脚本，对接专业工具输出成品"
         },
         {
-          "name": "改善实施",
-          "description": "制定详细的改善方案，培训操作工，固化标准作业"
+          "name": "社媒内容",
+          "description": "基于网红内容模板，生成适合各平台的社媒内容"
         }
       ],
-      "outcome": "单件加工时间从185秒降至128秒，效率提升44%，操作疲劳度降低30%，质量合格率提升至99.5%。",
-      "image": "/images/case-park.webp"
+      "outcome": "品牌故事传播量提升300%，用户情感连接度提升80%，品牌忠诚度提升40%。",
+      "image": "/images/case-wine-03.webp"
     },
     {
       "id": "case-04",
-      "title": "人机协作效率分析",
-      "subtitle": "优化人机配比，提升协作效率",
-      "category": "人机协作",
-      "icon": "FileText",
-      "color": "#C9A872",
-      "technologies": ["人机联合", "负荷分析", "效率优化"],
+      "title": "威士忌产品价值定位",
+      "subtitle": "清晰的价值主张与差异化",
+      "category": "产品价值",
+      "icon": "Sparkles",
+      "color": "#8B6F47",
+      "technologies": ["价值定位", "差异化策略", "产品定位"],
       "features": [
         {
-          "name": "人机联合分析",
-          "description": "绘制人机联合操作图，分析人员和设备的空闲时间"
+          "name": "价值分析",
+          "description": "分析产品的功能价值、情感价值、社会价值"
         },
         {
-          "name": "负荷率计算",
-          "description": "精确计算人员负荷率和设备负荷率，找出优化空间"
+          "name": "差异化定位",
+          "description": "找到与竞品的差异化优势，建立独特的价值主张"
         },
         {
-          "name": "配比优化",
-          "description": "优化人机配比，实现一人多机或多人一机的高效模式"
+          "name": "价值传播",
+          "description": "将价值主张转化为可传播的内容和故事"
         }
       ],
-      "outcome": "实现1人操作3台设备，人员效率提升200%，设备利用率从65%提升至90%，人均产值翻倍。",
-      "image": "/images/case-agency.webp"
+      "outcome": "产品价值认知度提升90%，差异化优势清晰度提升85%，购买转化率提升35%。",
+      "image": "/images/case-wine-04.webp"
     }
   ],
   "contact": {
     "phone": "",
-    "email": "contact@ie-ai-expert.com",
-    "address": "中国·四川·成都市成华区一环路电子信息产业大厦",
-    "addressShort": "成都·成华区",
+    "email": "contact@brand-ai-platform.com",
+    "address": "中国·北京·朝阳区",
+    "addressShort": "北京·朝阳区",
     "wechat": "请通过邮件联系获取微信",
     "workingHours": "工作日 9:00-18:00 (GMT+8)",
     "responseTime": "2个工作日内响应",
     "services": [
-      "免费体验工业工程AI分析",
-      "获取工业工程方法论白皮书",
-      "预约资深工程师1对1咨询",
+      "免费体验品牌定位AI分析",
+      "获取品牌定位方法论白皮书",
+      "预约资深品牌专家1对1咨询",
       "了解最新功能和行业案例"
     ]
   }

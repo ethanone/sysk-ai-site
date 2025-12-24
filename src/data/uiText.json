@@ -6,43 +6,67 @@
     "services": "服务",
     "cases": "案例",
     "contact": "联系",
-    "requestSample": "开始分析",
+    "requestSample": "开始定位",
     "switchLanguage": "切换语言",
     "switchToEnglish": "切换到英文"
   },
   "hero": {
     "learnMore": "了解更多",
-    "contactUs": "开始分析"
+    "contactUs": "开始定位"
   },
   "solutions": {
-    "badge": "核心分析能力",
-    "title": "通过多轮交互式对话引导工程师高效分析",
-    "titleHighlight": "精准·高效·专业",
-    "subtitle": "基于MOST、MTM、MODAPTS等标准方法，提供工时测定、动作分析、OEE计算、产线平衡等专业分析服务。"
+    "badge": "核心能力",
+    "title": "5个智能Agent协同工作",
+    "titleHighlight": "专业·高效·系统化",
+    "subtitle": "基于多Agent工作流，为酒类品牌提供从定位到叙事的全链路AI解决方案。"
   },
   "focusAreas": {
-    "badge": "核心服务领域",
+    "badge": "核心服务",
     "title": "我们的",
     "titleHighlight": "专业领域",
-    "subtitle": "致力于为工业工程师提供精准的分析计算和专业指导"
+    "subtitle": "致力于为酒类品牌提供精准的品牌定位与识别服务"
+  },
+  "brandPositioning": {
+    "badge": "品牌定位",
+    "title": "5个Agent工作流",
+    "titleHighlight": "系统化品牌定位",
+    "subtitle": "从市场分析到定位策略，5个智能Agent协同完成品牌定位全流程"
+  },
+  "brandIdentity": {
+    "badge": "品牌识别",
+    "title": "一次性输出",
+    "titleHighlight": "完整AI手册",
+    "subtitle": "包含Logo设计指导、色彩系统、字体规范、视觉元素等完整品牌识别体系"
+  },
+  "productValue": {
+    "badge": "产品价值",
+    "title": "清晰的价值主张",
+    "titleHighlight": "差异化定位",
+    "subtitle": "从功能价值、情感价值、社会价值到差异化价值，全方位定义产品价值"
+  },
+  "brandNarrative": {
+    "badge": "品牌叙事",
+    "title": "两步走策略",
+    "titleHighlight": "叙事计划 + 多模态脚本",
+    "subtitle": "先形成叙事计划，再基于计划生成多模态脚本，对接专业工具输出成品"
   },
   "dataSystem": {
     "badge": "专业方法论",
-    "title": "基于国际标准工业工程方法",
+    "title": "基于经典品牌理论",
     "titleHighlight": "科学严谨·行业认可",
-    "subtitle": "采用MOST、MTM、MODAPTS等标准方法论，结合AI技术，为您提供精准可靠的分析结果。"
+    "subtitle": "采用STP理论、定位理论等经典方法论，结合AI技术，为您提供精准可靠的品牌定位。"
   },
   "about": {
     "badge": "关于我们",
     "title": "专注于",
-    "titleHighlight": "工业工程智能分析",
+    "titleHighlight": "品牌智能定位",
     "coreGoal": "核心使命",
     "vision": "愿景"
   },
   "advantages": {
     "badge": "核心优势",
     "title": "为什么选择",
-    "titleHighlight": "工业工程AI专家"
+    "titleHighlight": "品牌智能定位平台"
   },
   "team": {
     "badge": "专家团队",
@@ -51,15 +75,15 @@
   },
   "testimonials": {
     "badge": "客户案例",
-    "title": "服务500+制造企业的工业工程分析",
-    "titleHighlight": "精准计算·专业指导",
-    "subtitle": "我们致力于通过专业的工业工程方法论和AI技术，帮助工程师提升分析效率，做出科学决策。"
+    "title": "服务500+酒类品牌的品牌定位",
+    "titleHighlight": "精准定位·专业指导",
+    "subtitle": "我们致力于通过专业的品牌定位方法论和AI技术，帮助品牌找到独特的价值定位。"
   },
   "cases": {
     "badge": "成功案例",
-    "title": "工业工程分析的",
+    "title": "品牌定位的",
     "titleHighlight": "实践应用",
-    "subtitle": "专业方法论与AI技术深度融合，为客户创造实实在在的效率提升价值",
+    "subtitle": "专业方法论与AI技术深度融合，为客户创造实实在在的品牌价值提升",
     "technologies": "核心方法",
     "painPoint": "痛点: ",
     "features": "核心功能",
@@ -67,14 +91,14 @@
   },
   "contact": {
     "badge": "联系我们",
-    "title": "与我们的工业工程专家取得联系",
+    "title": "与我们的品牌专家取得联系",
     "titleHighlight": "从免费体验开始",
     "titleSuffix": "",
-    "subtitle": "申请免费分析体验，获取工业工程方法论资料，并了解最新功能和行业案例。",
+    "subtitle": "申请免费定位体验，获取品牌定位方法论资料，并了解最新功能和行业案例。",
     "phoneLabel": "电话",
     "emailLabel": "邮箱",
     "addressLabel": "地址",
-    "cta": "开始分析",
+    "cta": "开始定位",
     "values": "我们的核心价值观",
     "advisors": "行业专家顾问"
   },
@@ -88,6 +112,6 @@
     "contact": "联系我们",
     "allRightsReserved": "版权所有",
     "foundedIn": "成立于",
-    "focusOn": "专注于工业工程智能分析"
+    "focusOn": "专注于品牌智能定位"
   }
 }

@@ -47,38 +47,38 @@
 :root {
   --radius: 0.5rem;
   --card: #FFFFFF;
-  --card-foreground: #2D1B1B;
+  --card-foreground: #1A0E0A;
   --popover: #FFFFFF;
-  --popover-foreground: #2D1B1B;
-  --primary: #8B2F2F; /* 枣红色 - 主色 */
+  --popover-foreground: #1A0E0A;
+  --primary: #722F37; /* 深酒红色 - 主色（Burgundy） */
   --primary-foreground: #FFFFFF;
-  --secondary: #3D2734; /* 深酱紫色 */
+  --secondary: #4A2C2A; /* 深棕红色 */
   --secondary-foreground: #FFFFFF;
-  --muted: #F5F0EB;
+  --muted: #F5F1ED;
   --muted-foreground: #6B5D5D;
-  --accent: #C9A86A; /* 淡金色 CTA */
-  --accent-foreground: #2D1B1B;
-  --accent-hover: #B89650; /* 淡金色 hover 状态 */
-  --destructive: #EF4444;
-  --border: #E8DDD5;
-  --input: #F5F0EB;
-  --ring: #8B2F2F;
-  --chart-1: #8B2F2F;
-  --chart-2: #3D2734;
-  --chart-3: #C9A86A;
-  --chart-4: #E8DDD5;
-  --chart-5: #F5F0EB;
+  --accent: #D4AF37; /* 金色 CTA（Gold） */
+  --accent-foreground: #1A0E0A;
+  --accent-hover: #B8941F; /* 深金色 hover 状态 */
+  --destructive: #C41E3A;
+  --border: #E5D5C8;
+  --input: #F5F1ED;
+  --ring: #722F37;
+  --chart-1: #722F37;
+  --chart-2: #4A2C2A;
+  --chart-3: #D4AF37;
+  --chart-4: #8B6F47;
+  --chart-5: #E5D5C8;
   --sidebar: #FFFFFF;
-  --sidebar-foreground: #2D1B1B;
-  --sidebar-primary: #8B2F2F;
+  --sidebar-foreground: #1A0E0A;
+  --sidebar-primary: #722F37;
   --sidebar-primary-foreground: #FFFFFF;
-  --sidebar-accent: #F5F0EB;
-  --sidebar-accent-foreground: #2D1B1B;
-  --sidebar-border: #E8DDD5;
-  --sidebar-ring: #8B2F2F;
-  --background: #FFFBF7;
-  --foreground: #2D1B1B;
-  --stat-bg: #F5F0EB; /* 统计数据背景 */
+  --sidebar-accent: #F5F1ED;
+  --sidebar-accent-foreground: #1A0E0A;
+  --sidebar-border: #E5D5C8;
+  --sidebar-ring: #722F37;
+  --background: #FFFCF9;
+  --foreground: #1A0E0A;
+  --stat-bg: #F5F1ED; /* 统计数据背景 */
 }
 
 .dark {
@@ -253,25 +253,25 @@
   }
 }
 
-/* 优雅的渐变 - 静奢风配色 */
+/* 优雅的渐变 - 酒类品牌配色 */
 .gradient-primary {
-  background: linear-gradient(135deg, #8B2F2F 0%, #3D2734 100%); /* 枣红到酱紫 */
+  background: linear-gradient(135deg, #722F37 0%, #4A2C2A 100%); /* 深酒红到深棕红 */
   color: #FFFFFF;
 }
 
 .gradient-secondary {
-  background: linear-gradient(135deg, #3D2734 0%, #2D1B1B 100%); /* 酱紫渐变 */
+  background: linear-gradient(135deg, #4A2C2A 0%, #1A0E0A 100%); /* 深棕红渐变 */
   color: #FFFFFF;
 }
 
 .gradient-accent {
-  background: linear-gradient(135deg, #C9A86A 0%, #B89650 100%); /* 淡金色渐变 */
-  color: #2D1B1B;
+  background: linear-gradient(135deg, #D4AF37 0%, #B8941F 100%); /* 金色渐变 */
+  color: #1A0E0A;
 }
 
 .gradient-text {
-  color: #2D1B1B; /* 深棕色文字，静奢风 */
-  -webkit-text-fill-color: #2D1B1B;
+  color: #1A0E0A; /* 深棕色文字，酒类品牌风格 */
+  -webkit-text-fill-color: #1A0E0A;
 }
 
 .gradient-hover {
@@ -713,47 +713,47 @@ a[href^="http"]:not(.tech-button):hover::after {
   letter-spacing: -0.03em; /* 更紧凑的字距 */
 }
 
-/* 优化的卡片效果 - 静奢风 */
+/* 优化的卡片效果 - 酒类品牌风格 */
 .tech-card {
   position: relative;
   background: #FFFFFF;
-  border: 1px solid #E8DDD5;
+  border: 1px solid #E5D5C8;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   border-radius: 12px;
 }
 
 .tech-card:hover {
-  border-color: #C9A86A;
-  box-shadow: 0 10px 30px rgba(139, 47, 47, 0.15);
+  border-color: #D4AF37;
+  box-shadow: 0 10px 30px rgba(114, 47, 55, 0.15);
   transform: translateY(-4px);
 }
 
 .tech-card:focus-visible {
-  outline: 2px solid #C9A86A;
+  outline: 2px solid #D4AF37;
   outline-offset: 2px;
 }
 
-/* 数据标签 - 静奢风 */
+/* 数据标签 - 酒类品牌风格 */
 .stat-badge {
   display: inline-flex;
   align-items: center;
   padding: 6px 12px;
-  background: #F5F0EB;
-  border: 1px solid #E8DDD5;
+  background: #F5F1ED;
+  border: 1px solid #E5D5C8;
   border-radius: 20px;
   font-size: 12px;
   font-weight: 600;
-  color: #8B2F2F;
+  color: #722F37;
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
 
-/* 大数字展示 - 静奢风 */
+/* 大数字展示 - 酒类品牌风格 */
 .stat-number {
   font-size: 4rem;
   font-weight: 200;
   line-height: 1;
-  color: #8B2F2F;
+  color: #722F37;
   letter-spacing: -0.02em;
 }
 
@@ -780,43 +780,43 @@ a[href^="http"]:not(.tech-button):hover::after {
   }
 }
 
-/* 淡金色 CTA 按钮 - 静奢风 */
+/* 金色 CTA 按钮 - 酒类品牌风格 */
 .cta-button {
   position: relative;
-  background: linear-gradient(135deg, #C9A86A 0%, #B89650 100%);
-  color: #2D1B1B;
-  border: 2px solid #C9A86A;
+  background: linear-gradient(135deg, #D4AF37 0%, #B8941F 100%);
+  color: #1A0E0A;
+  border: 2px solid #D4AF37;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   font-weight: 600;
   letter-spacing: 0.05em;
   cursor: pointer;
   user-select: none;
-  box-shadow: 0 4px 14px 0 rgba(201, 168, 106, 0.35);
+  box-shadow: 0 4px 14px 0 rgba(212, 175, 55, 0.35);
 }
 
 .cta-button:hover {
-  background: linear-gradient(135deg, #B89650 0%, #A68540 100%);
-  border-color: #B89650;
-  box-shadow: 0 6px 20px 0 rgba(201, 168, 106, 0.45);
+  background: linear-gradient(135deg, #B8941F 0%, #9A7A15 100%);
+  border-color: #B8941F;
+  box-shadow: 0 6px 20px 0 rgba(212, 175, 55, 0.45);
   transform: translateY(-2px);
 }
 
 .cta-button:active {
-  background: #A68540;
+  background: #9A7A15;
   transform: translateY(0);
 }
 
 .cta-button:focus-visible {
-  outline: 2px solid #C9A86A;
+  outline: 2px solid #D4AF37;
   outline-offset: 2px;
 }
 
-/* 次要按钮 - 枣红色 */
+/* 次要按钮 - 深酒红色 */
 .secondary-button {
   position: relative;
   background: #FFFFFF;
-  color: #8B2F2F;
-  border: 2px solid #8B2F2F;
+  color: #722F37;
+  border: 2px solid #722F37;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   font-weight: 500;
   letter-spacing: 0.05em;
@@ -825,13 +825,13 @@ a[href^="http"]:not(.tech-button):hover::after {
 }
 
 .secondary-button:hover {
-  background: linear-gradient(135deg, #8B2F2F 0%, #3D2734 100%);
+  background: linear-gradient(135deg, #722F37 0%, #4A2C2A 100%);
   color: #FFFFFF;
-  border-color: #8B2F2F;
+  border-color: #722F37;
 }
 
 .secondary-button:focus-visible {
-  outline: 2px solid #8B2F2F;
+  outline: 2px solid #722F37;
   outline-offset: 2px;
 }
 
