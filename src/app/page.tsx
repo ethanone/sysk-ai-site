@@ -366,6 +366,90 @@ export default function HomePage() {
         </section>
       )}
 
+      {/* 场景与需求模块 Section */}
+      {companyData.scenarioDemand && (
+        <section className="py-20 px-4 bg-white">
+          <div className="container mx-auto max-w-7xl">
+            <motion.div {...fadeInUp} className="text-center mb-16">
+              <span className="stat-badge mb-4 inline-block">
+                场景与需求
+              </span>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                场景与需求模块
+                <span className="text-primary"> 内容的"燃料"</span>
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                {companyData.scenarioDemand.subtitle}
+              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {companyData.scenarioDemand.features.map((feature, index) => {
+                const Icon = iconMap[feature.icon] || Zap;
+                return (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1, duration: 0.5 }}
+                    viewport={{ once: true }}
+                    className="bg-gradient-to-br from-white to-[#F5F1ED] rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all border border-gray-100"
+                  >
+                    <div className="w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-6 bg-secondary/10">
+                      <Icon className="w-8 h-8 text-secondary" />
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-4 text-center">{feature.name}</h3>
+                    <p className="text-gray-600 text-sm leading-relaxed text-center">{feature.description}</p>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* 灵魂与个性转译模块 Section */}
+      {companyData.brandSoul && (
+        <section className="py-20 px-4 bg-gradient-to-b from-[#F5F1ED] to-white">
+          <div className="container mx-auto max-w-7xl">
+            <motion.div {...fadeInUp} className="text-center mb-16">
+              <span className="stat-badge mb-4 inline-block">
+                品牌个性
+              </span>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                灵魂与个性转译模块
+                <span className="text-primary"> 内容的"神韵"</span>
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                {companyData.brandSoul.subtitle}
+              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+              {companyData.brandSoul.features.map((feature, index) => {
+                const Icon = iconMap[feature.icon] || Heart;
+                return (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.2, duration: 0.5 }}
+                    viewport={{ once: true }}
+                    className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all border border-gray-100"
+                  >
+                    <div className="w-16 h-16 rounded-xl flex items-center justify-center mb-6 bg-primary/10">
+                      <Icon className="w-8 h-8 text-primary" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4">{feature.name}</h3>
+                    <p className="text-gray-600 text-sm leading-relaxed">{feature.description}</p>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* 品牌叙事系统 Section */}
       {companyData.brandNarrative && (
         <section className="py-20 px-4 bg-white">

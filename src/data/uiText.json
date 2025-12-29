@@ -27,10 +27,10 @@
     "subtitle": "致力于为酒类品牌提供精准的品牌定位与识别服务"
   },
   "brandPositioning": {
-    "badge": "品牌定位",
-    "title": "5个Agent工作流",
-    "titleHighlight": "系统化品牌定位",
-    "subtitle": "从市场分析到定位策略，5个智能Agent协同完成品牌定位全流程"
+    "badge": "战略与规划",
+    "title": "战略与规划模块",
+    "titleHighlight": "决定智能体生成内容的\"准星\"",
+    "subtitle": "解决\"我是谁\"和\"我在哪\"的问题，遵循品牌价值链闭环，实现价值转化"
   },
   "brandIdentity": {
     "badge": "品牌识别",
@@ -39,10 +39,22 @@
     "subtitle": "包含Logo设计指导、色彩系统、字体规范、视觉元素等完整品牌识别体系"
   },
   "productValue": {
-    "badge": "产品价值",
-    "title": "清晰的价值主张",
-    "titleHighlight": "差异化定位",
-    "subtitle": "从功能价值、情感价值、社会价值到差异化价值，全方位定义产品价值"
+    "badge": "价值与利益",
+    "title": "价值与利益表达模块",
+    "titleHighlight": "内容的\"血肉\"",
+    "subtitle": "通过FABV模型（特点、优点、利益、价值）将产品力转化为说服力"
+  },
+  "scenarioDemand": {
+    "badge": "场景与需求",
+    "title": "场景与需求模块",
+    "titleHighlight": "内容的\"燃料\"",
+    "subtitle": "解决\"为什么买\"的问题，基于JTBD理论和五大消费情景"
+  },
+  "brandSoul": {
+    "badge": "品牌个性",
+    "title": "灵魂与个性转译模块",
+    "titleHighlight": "内容的\"神韵\"",
+    "subtitle": "解决内容\"像不像人\"的问题，通过品牌核心价值观和品牌个性塑造"
   },
   "brandNarrative": {
     "badge": "品牌叙事",
@@ -75,9 +87,9 @@
   },
   "testimonials": {
     "badge": "客户案例",
-    "title": "服务500+酒类品牌的品牌定位",
-    "titleHighlight": "精准定位·专业指导",
-    "subtitle": "我们致力于通过专业的品牌定位方法论和AI技术，帮助品牌找到独特的价值定位。"
+    "title": "服务300+酒类品牌的品牌定位",
+    "titleHighlight": "精准定位·价值转化",
+    "subtitle": "我们致力于通过专业的品牌定位方法论和AI技术，帮助品牌找到独特的价值定位，实现溢价能力提升20-30%。"
   },
   "cases": {
     "badge": "成功案例",
