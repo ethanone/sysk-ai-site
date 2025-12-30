@@ -136,7 +136,7 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="text-lg sm:text-xl md:text-2xl text-blue-100 mb-16 max-w-4xl mx-auto leading-relaxed font-light"
+              className="text-lg sm:text-xl md:text-2xl text-blue-100 mb-16 max-w-4xl mx-auto leading-relaxed font-bold"
             >
               {companyData.companyInfo.subtitle}
             </motion.p>
