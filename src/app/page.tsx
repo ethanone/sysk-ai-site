@@ -201,7 +201,12 @@ export default function HomePage() {
                 {uiText.marketAnalysis.badge}
               </span>
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                {uiText.marketAnalysis.title}
+                <span className="inline-block bg-gradient-to-br from-cyan-200 via-blue-100 to-cyan-300 text-transparent bg-clip-text drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)] filter brightness-150 contrast-125" style={{
+                  textShadow: '0 0 40px rgba(34, 211, 238, 0.6), 0 0 80px rgba(96, 165, 250, 0.4), 0 4px 12px rgba(0, 0, 0, 0.9)',
+                  WebkitTextStroke: '0.5px rgba(255, 255, 255, 0.3)'
+                }}>
+                  {uiText.marketAnalysis.title}
+                </span>
                 <span className="text-cyan-300"> {uiText.marketAnalysis.titleHighlight}</span>
               </h2>
               <p className="text-xl text-blue-200/80 max-w-3xl mx-auto">
