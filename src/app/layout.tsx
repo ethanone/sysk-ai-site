@@ -4,20 +4,20 @@ import { cn } from "@/lib/utils";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 
 export const metadata: Metadata = {
-  title: "品牌智能定位平台 - 用AI重新定义品牌价值 | 品牌定位·品牌识别·品牌叙事",
-  description: "品牌智能定位平台基于多Agent工作流，为酒类品牌提供从定位到叙事的全链路AI解决方案。品牌定位、品牌识别、产品价值、品牌叙事，助力品牌找到独特的价值定位。",
-  keywords: ["品牌定位", "品牌识别", "品牌叙事", "AI品牌", "品牌战略", "品牌定位系统", "品牌识别手册", "产品价值定位", "多Agent工作流", "酒类品牌"],
-  authors: [{ name: "Factory AI Digital Employee" }],
+  title: "G-Box - 人生第一台裸眼全息设备 | 数艺时空 | 全息数字消费平台",
+  description: "G-Box是全球最大的全息数字消费平台，采用裸眼全息技术，无需穿戴任何设备，不限观看人数。49个视点，60度超广角，AI智能学习，自动转3D，重新定义人与机器的交互方式。",
+  keywords: ["G-Box", "裸眼全息", "全息设备", "3D全息", "数字手办", "全息相册", "柱状透镜", "AI算法", "数艺时空", "全息投影"],
+  authors: [{ name: "数艺时空（成都）文化科技有限公司" }],
   icons: {
     icon: "/favicon.png",
     shortcut: "/favicon.png",
     apple: "/favicon.png",
   },
   openGraph: {
-    title: "品牌智能定位平台 - 用AI重新定义品牌价值",
-    description: "品牌定位平台 | AI驱动 | 多Agent工作流 | 品牌识别 | 品牌叙事",
-    url: "https://www.brand-ai-platform.com",
-    siteName: "品牌智能定位平台",
+    title: "G-Box - 人生第一台裸眼全息设备",
+    description: "G-Box | 裸眼全息技术 | 49个视点 | 60度超广角 | 全息数字消费平台",
+    url: "https://www.g-box.com",
+    siteName: "G-Box 全息数字消费平台",
     locale: "zh_CN",
     type: "website",
   },

@@ -6,67 +6,121 @@
     "services": "Services",
     "cases": "Cases",
     "contact": "Contact",
-    "requestSample": "Start Positioning",
+    "requestSample": "Try Product",
     "switchLanguage": "Switch Language",
     "switchToEnglish": "Switch to Chinese"
   },
   "hero": {
     "learnMore": "Learn More",
-    "contactUs": "Start Positioning"
+    "contactUs": "Try Product"
   },
   "solutions": {
     "badge": "Core Capabilities",
-    "title": "5 Intelligent Agents Work Collaboratively",
-    "titleHighlight": "Professional · Efficient · Systematic",
-    "subtitle": "Based on multi-Agent workflow, providing end-to-end AI solutions for wine brands from positioning to narrative."
+    "title": "Naked-Eye Holographic Technology",
+    "titleHighlight": "Innovative · Immersive · Natural",
+    "subtitle": "G-Box uses lenticular lens and stereoscopic display technology, combined with AI algorithms, to achieve true naked-eye 3D holographic experience."
   },
   "focusAreas": {
-    "badge": "Core Services",
-    "title": "Our",
-    "titleHighlight": "Expertise",
-    "subtitle": "Committed to providing precise brand positioning and identity services for wine brands"
+    "badge": "Core Features",
+    "title": "G-Box",
+    "titleHighlight": "Four Core Features",
+    "subtitle": "Naked-Eye 3D, AI Learning, Ultra-Wide Angle, Auto 3D Conversion"
+  },
+  "productSpecs": {
+    "badge": "Device Specifications",
+    "title": "G-Box",
+    "titleHighlight": "Technical Specifications",
+    "subtitle": "Compact and portable, powerful performance, excellent experience"
+  },
+  "technology": {
+    "badge": "Core Technology",
+    "title": "Naked-Eye Holographic Technology",
+    "titleHighlight": "Innovative Breakthrough",
+    "subtitle": "Lenticular lens technology, AI depth calculation, multi-view generation, intelligent control"
+  },
+  "competitors": {
+    "badge": "Competitor Analysis",
+    "title": "G-Box vs Traditional Technologies",
+    "titleHighlight": "Clear Advantages",
+    "subtitle": "49 viewpoints, no glasses needed, portable and compact, safe and reliable"
+  },
+  "digitalIP": {
+    "badge": "Digital IP",
+    "title": "3D Digital IP",
+    "titleHighlight": "Digital Figures and Limited Editions",
+    "subtitle": "Highly integrated, unique assets, tradable, globally limited"
+  },
+  "freeChannel": {
+    "badge": "Free Channel",
+    "title": "Asset Transfer Mechanism",
+    "titleHighlight": "G-App and G-Box",
+    "subtitle": "Real-name registration, transfer, anonymous purchase"
+  },
+  "applicationScenarios": {
+    "badge": "Application Scenarios",
+    "title": "G-Box",
+    "titleHighlight": "Dual Drive of 2B and 2C",
+    "subtitle": "Rich applications including holographic advertising machines, sample displays, digital figures, holographic albums, etc."
+  },
+  "marketAnalysis": {
+    "badge": "Market Analysis",
+    "title": "Holographic Projection Technology",
+    "titleHighlight": "Broad Market Prospects",
+    "subtitle": "Market size expected to approach 15 billion yuan by 2026, with 9.0% annual compound growth rate"
   },
   "brandPositioning": {
-    "badge": "Brand Positioning",
-    "title": "5 Agent Workflow",
-    "titleHighlight": "Systematic Brand Positioning",
-    "subtitle": "From market analysis to positioning strategy, 5 intelligent Agents work collaboratively to complete the entire brand positioning process"
+    "badge": "Market Status",
+    "title": "Holographic Projection Technology",
+    "titleHighlight": "Rapid Development",
+    "subtitle": "National policy support, accelerated technology iteration, expanded investment scale"
   },
   "brandIdentity": {
-    "badge": "Brand Identity",
-    "title": "Output at Once",
-    "titleHighlight": "Complete AI Manual",
-    "subtitle": "Including Logo design guidance, color system, typography standards, visual elements and other complete brand identity system"
+    "badge": "Industry Pain Points",
+    "title": "Traditional Holographic Technology",
+    "titleHighlight": "Facing Challenges",
+    "subtitle": "No consumer products, high costs, unsatisfactory experience"
   },
   "productValue": {
     "badge": "Product Value",
-    "title": "Clear Value Proposition",
-    "titleHighlight": "Differentiation Positioning",
-    "subtitle": "From functional value, emotional value, social value to differentiation value, comprehensively define product value"
+    "title": "G-Box",
+    "titleHighlight": "Integrated Solution",
+    "subtitle": "Solving pain points of traditional holographic technology, providing consumer-grade holographic products"
+  },
+  "scenarioDemand": {
+    "badge": "Scenario Demand",
+    "title": "Application Scenarios",
+    "titleHighlight": "Rich and Diverse",
+    "subtitle": "From commercial display to personal consumption, covering multiple application areas"
+  },
+  "brandSoul": {
+    "badge": "Brand Personality",
+    "title": "Shu Yi Shi Kong",
+    "titleHighlight": "Technological Innovation",
+    "subtitle": "Committed to promoting the popularization of holographic technology"
   },
   "brandNarrative": {
     "badge": "Brand Narrative",
-    "title": "Two-Step Strategy",
-    "titleHighlight": "Narrative Plan + Multimodal Scripts",
-    "subtitle": "First form a narrative plan, then generate multimodal scripts based on the plan, connect to professional tools for final output"
+    "title": "G-Box",
+    "titleHighlight": "Redefining Interaction",
+    "subtitle": "More natural viewing experience, will redefine the way humans interact with machines"
   },
   "dataSystem": {
     "badge": "Professional Methodology",
-    "title": "Based on Classic Brand Theory",
-    "titleHighlight": "Scientifically Rigorous · Industry Recognized",
-    "subtitle": "Adopt classic methodologies such as STP theory and positioning theory, combined with AI technology, to provide accurate and reliable brand positioning."
+    "title": "Based on Advanced Technology",
+    "titleHighlight": "Scientifically Rigorous · Industry Leading",
+    "subtitle": "Using advanced technologies such as lenticular lens technology, AI algorithms, neural networks, etc., to provide you with excellent holographic experience."
   },
   "about": {
     "badge": "About Us",
     "title": "Focus on",
-    "titleHighlight": "Brand AI Positioning",
+    "titleHighlight": "Naked-Eye Holographic Technology",
     "coreGoal": "Core Mission",
     "vision": "Vision"
   },
   "advantages": {
     "badge": "Core Advantages",
     "title": "Why Choose",
-    "titleHighlight": "Brand AI Positioning Platform"
+    "titleHighlight": "G-Box"
   },
   "team": {
     "badge": "Expert Team",
@@ -75,30 +129,30 @@
   },
   "testimonials": {
     "badge": "Client Cases",
-    "title": "Serving 500+ wine brands with brand positioning",
-    "titleHighlight": "Precise Positioning · Professional Guidance",
-    "subtitle": "We are committed to helping brands find unique value positioning through professional brand positioning methodologies and AI technology."
+    "title": "G-Box Application Cases",
+    "titleHighlight": "Successful Practice · Value Enhancement",
+    "subtitle": "We are committed to helping customers enhance brand image and user experience through innovative holographic technology."
   },
   "cases": {
     "badge": "Success Cases",
     "title": "Practical Applications",
-    "titleHighlight": "of Brand Positioning",
-    "subtitle": "Deep integration of professional methodologies and AI technology, creating tangible brand value improvement for customers",
-    "technologies": "Core Methods",
+    "titleHighlight": "of G-Box",
+    "subtitle": "Deep integration of innovative technology and practical applications, creating tangible value enhancement for customers",
+    "technologies": "Core Technology",
     "painPoint": "Pain Point: ",
     "features": "Core Features",
     "outcome": "Project Results"
   },
   "contact": {
     "badge": "Contact Us",
-    "title": "Get in touch with our brand experts",
+    "title": "Get in touch with our team",
     "titleHighlight": "Start with a free trial",
     "titleSuffix": "",
-    "subtitle": "Apply for free positioning trial, get brand positioning methodology materials, and learn about latest features and industry cases.",
+    "subtitle": "Apply for free product trial, get product technical materials, and learn about latest features and application scenarios.",
     "phoneLabel": "Phone",
     "emailLabel": "Email",
     "addressLabel": "Address",
-    "cta": "Start Positioning",
+    "cta": "Try Product",
     "values": "Our Core Values",
     "advisors": "Industry Expert Advisors"
   },
@@ -112,6 +166,6 @@
     "contact": "Contact Us",
     "allRightsReserved": "All rights reserved.",
     "foundedIn": "Founded in",
-    "focusOn": "Focus on Brand AI Positioning"
+    "focusOn": "Focus on Naked-Eye Holographic Technology"
   }
 }

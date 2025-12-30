@@ -6,79 +6,121 @@
     "services": "服务",
     "cases": "案例",
     "contact": "联系",
-    "requestSample": "开始定位",
+    "requestSample": "体验产品",
     "switchLanguage": "切换语言",
     "switchToEnglish": "切换到英文"
   },
   "hero": {
     "learnMore": "了解更多",
-    "contactUs": "开始定位"
+    "contactUs": "体验产品"
   },
   "solutions": {
     "badge": "核心能力",
-    "title": "5个智能Agent协同工作",
-    "titleHighlight": "专业·高效·系统化",
-    "subtitle": "基于多Agent工作流，为酒类品牌提供从定位到叙事的全链路AI解决方案。"
+    "title": "裸眼全息技术",
+    "titleHighlight": "创新·沉浸·自然",
+    "subtitle": "G-Box采用柱状透镜和立体显示技术，结合AI算法，实现真正的裸眼3D全息体验。"
   },
   "focusAreas": {
-    "badge": "核心服务",
-    "title": "我们的",
-    "titleHighlight": "专业领域",
-    "subtitle": "致力于为酒类品牌提供精准的品牌定位与识别服务"
+    "badge": "核心特点",
+    "title": "G-Box",
+    "titleHighlight": "四大核心特点",
+    "subtitle": "裸眼3D、智能学习、超广角、自动转3D"
+  },
+  "productSpecs": {
+    "badge": "设备参数",
+    "title": "G-Box",
+    "titleHighlight": "技术规格",
+    "subtitle": "小巧便携，性能强大，体验卓越"
+  },
+  "technology": {
+    "badge": "核心技术",
+    "title": "裸眼全息技术",
+    "titleHighlight": "创新突破",
+    "subtitle": "柱状透镜技术、AI深度计算、多视角生成、智能控制"
+  },
+  "competitors": {
+    "badge": "竞品分析",
+    "title": "G-Box相比传统技术",
+    "titleHighlight": "优势明显",
+    "subtitle": "49个视点、无需眼镜、便携小巧、安全可靠"
+  },
+  "digitalIP": {
+    "badge": "数字IP",
+    "title": "3D数字IP",
+    "titleHighlight": "数字手办与联名款",
+    "subtitle": "高度集成、资产唯一、可交易、全球限量"
+  },
+  "freeChannel": {
+    "badge": "自由通道",
+    "title": "资产流转机制",
+    "titleHighlight": "G-App与G-Box",
+    "subtitle": "实名注册、转让、不记名购买"
+  },
+  "applicationScenarios": {
+    "badge": "应用场景",
+    "title": "G-Box",
+    "titleHighlight": "2B与2C双轮驱动",
+    "subtitle": "全息广告机、样品展示、数字手办、全息相册等丰富应用"
+  },
+  "marketAnalysis": {
+    "badge": "市场分析",
+    "title": "全息投影技术",
+    "titleHighlight": "市场前景广阔",
+    "subtitle": "2026年市场规模预计接近150亿元，年复合增长率9.0%"
   },
   "brandPositioning": {
-    "badge": "战略与规划",
-    "title": "战略与规划模块",
-    "titleHighlight": "决定智能体生成内容的\"准星\"",
-    "subtitle": "解决\"我是谁\"和\"我在哪\"的问题，遵循品牌价值链闭环，实现价值转化"
+    "badge": "市场现状",
+    "title": "全息投影技术",
+    "titleHighlight": "快速发展",
+    "subtitle": "国家政策支持、技术迭代加速、投资规模扩大"
   },
   "brandIdentity": {
-    "badge": "品牌识别",
-    "title": "一次性输出",
-    "titleHighlight": "完整AI手册",
-    "subtitle": "包含Logo设计指导、色彩系统、字体规范、视觉元素等完整品牌识别体系"
+    "badge": "行业痛点",
+    "title": "传统全息技术",
+    "titleHighlight": "面临挑战",
+    "subtitle": "无消费类产品、成本高昂、体验效果差强人意"
   },
   "productValue": {
-    "badge": "价值与利益",
-    "title": "价值与利益表达模块",
-    "titleHighlight": "内容的\"血肉\"",
-    "subtitle": "通过FABV模型（特点、优点、利益、价值）将产品力转化为说服力"
+    "badge": "产品价值",
+    "title": "G-Box",
+    "titleHighlight": "一体化解决方案",
+    "subtitle": "解决传统全息技术的痛点，提供消费级全息产品"
   },
   "scenarioDemand": {
-    "badge": "场景与需求",
-    "title": "场景与需求模块",
-    "titleHighlight": "内容的\"燃料\"",
-    "subtitle": "解决\"为什么买\"的问题，基于JTBD理论和五大消费情景"
+    "badge": "场景需求",
+    "title": "应用场景",
+    "titleHighlight": "丰富多样",
+    "subtitle": "从商业展示到个人消费，覆盖多个应用领域"
   },
   "brandSoul": {
     "badge": "品牌个性",
-    "title": "灵魂与个性转译模块",
-    "titleHighlight": "内容的\"神韵\"",
-    "subtitle": "解决内容\"像不像人\"的问题，通过品牌核心价值观和品牌个性塑造"
+    "title": "数艺时空",
+    "titleHighlight": "技术创新",
+    "subtitle": "致力于推动全息技术的大众化应用"
   },
   "brandNarrative": {
     "badge": "品牌叙事",
-    "title": "两步走策略",
-    "titleHighlight": "叙事计划 + 多模态脚本",
-    "subtitle": "先形成叙事计划，再基于计划生成多模态脚本，对接专业工具输出成品"
+    "title": "G-Box",
+    "titleHighlight": "重新定义交互",
+    "subtitle": "更符合自然的观影体验，将重新定义人与机器的交互方式"
   },
   "dataSystem": {
     "badge": "专业方法论",
-    "title": "基于经典品牌理论",
-    "titleHighlight": "科学严谨·行业认可",
-    "subtitle": "采用STP理论、定位理论等经典方法论，结合AI技术，为您提供精准可靠的品牌定位。"
+    "title": "基于先进技术",
+    "titleHighlight": "科学严谨·行业领先",
+    "subtitle": "采用柱状透镜技术、AI算法、神经网络等先进技术，为您提供卓越的全息体验。"
   },
   "about": {
     "badge": "关于我们",
     "title": "专注于",
-    "titleHighlight": "品牌智能定位",
+    "titleHighlight": "裸眼全息技术",
     "coreGoal": "核心使命",
     "vision": "愿景"
   },
   "advantages": {
     "badge": "核心优势",
     "title": "为什么选择",
-    "titleHighlight": "品牌智能定位平台"
+    "titleHighlight": "G-Box"
   },
   "team": {
     "badge": "专家团队",
@@ -87,30 +129,30 @@
   },
   "testimonials": {
     "badge": "客户案例",
-    "title": "服务300+酒类品牌的品牌定位",
-    "titleHighlight": "精准定位·价值转化",
-    "subtitle": "我们致力于通过专业的品牌定位方法论和AI技术，帮助品牌找到独特的价值定位，实现溢价能力提升20-30%。"
+    "title": "G-Box应用案例",
+    "titleHighlight": "成功实践·价值提升",
+    "subtitle": "我们致力于通过创新的全息技术，帮助客户提升品牌形象和用户体验。"
   },
   "cases": {
     "badge": "成功案例",
-    "title": "品牌定位的",
+    "title": "G-Box的",
     "titleHighlight": "实践应用",
-    "subtitle": "专业方法论与AI技术深度融合，为客户创造实实在在的品牌价值提升",
-    "technologies": "核心方法",
+    "subtitle": "创新技术与实际应用深度融合，为客户创造实实在在的价值提升",
+    "technologies": "核心技术",
     "painPoint": "痛点: ",
     "features": "核心功能",
     "outcome": "项目成果"
   },
   "contact": {
     "badge": "联系我们",
-    "title": "与我们的品牌专家取得联系",
+    "title": "与我们的团队取得联系",
     "titleHighlight": "从免费体验开始",
     "titleSuffix": "",
-    "subtitle": "申请免费定位体验，获取品牌定位方法论资料，并了解最新功能和行业案例。",
+    "subtitle": "申请免费产品体验，获取产品技术资料，并了解最新功能和应用场景。",
     "phoneLabel": "电话",
     "emailLabel": "邮箱",
     "addressLabel": "地址",
-    "cta": "开始定位",
+    "cta": "体验产品",
     "values": "我们的核心价值观",
     "advisors": "行业专家顾问"
   },
@@ -124,6 +166,6 @@
     "contact": "联系我们",
     "allRightsReserved": "版权所有",
     "foundedIn": "成立于",
-    "focusOn": "专注于品牌智能定位"
+    "focusOn": "专注于裸眼全息技术"
   }
 }
