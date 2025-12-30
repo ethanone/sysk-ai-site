@@ -186,6 +186,7 @@ MIT License
 
 - 📧 Email: contact@factory-ai.com
 - 🌐 Website: [工厂AI数字员工](#)
+- 🔗 GitHub: [https://github.com/ethanone/sysk-ai-site](https://github.com/ethanone/sysk-ai-site)
 
 ---
 

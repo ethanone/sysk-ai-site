@@ -261,7 +261,12 @@ export default function HomePage() {
                 {uiText.technology.badge}
               </span>
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                {uiText.technology.title}
+                <span className="inline-block bg-gradient-to-br from-cyan-200 via-blue-100 to-cyan-300 text-transparent bg-clip-text drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)] filter brightness-150 contrast-125" style={{
+                  textShadow: '0 0 40px rgba(34, 211, 238, 0.6), 0 0 80px rgba(96, 165, 250, 0.4), 0 4px 12px rgba(0, 0, 0, 0.9)',
+                  WebkitTextStroke: '0.5px rgba(255, 255, 255, 0.3)'
+                }}>
+                  {uiText.technology.title}
+                </span>
                 <span className="text-cyan-300"> {uiText.technology.titleHighlight}</span>
               </h2>
               <p className="text-xl text-blue-200/80 max-w-3xl mx-auto">
@@ -308,7 +313,12 @@ export default function HomePage() {
                 {uiText.productSpecs.badge}
               </span>
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                {uiText.productSpecs.title}
+                <span className="inline-block bg-gradient-to-br from-cyan-200 via-blue-100 to-cyan-300 text-transparent bg-clip-text drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)] filter brightness-150 contrast-125" style={{
+                  textShadow: '0 0 40px rgba(34, 211, 238, 0.6), 0 0 80px rgba(96, 165, 250, 0.4), 0 4px 12px rgba(0, 0, 0, 0.9)',
+                  WebkitTextStroke: '0.5px rgba(255, 255, 255, 0.3)'
+                }}>
+                  {uiText.productSpecs.title}
+                </span>
                 <span className="text-cyan-300"> {uiText.productSpecs.titleHighlight}</span>
               </h2>
               <p className="text-xl text-blue-200/80 max-w-3xl mx-auto">
@@ -358,7 +368,12 @@ export default function HomePage() {
                 {uiText.competitors.badge}
               </span>
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                {uiText.competitors.title}
+                <span className="inline-block bg-gradient-to-br from-cyan-200 via-blue-100 to-cyan-300 text-transparent bg-clip-text drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)] filter brightness-150 contrast-125" style={{
+                  textShadow: '0 0 40px rgba(34, 211, 238, 0.6), 0 0 80px rgba(96, 165, 250, 0.4), 0 4px 12px rgba(0, 0, 0, 0.9)',
+                  WebkitTextStroke: '0.5px rgba(255, 255, 255, 0.3)'
+                }}>
+                  {uiText.competitors.title}
+                </span>
                 <span className="text-cyan-300"> {uiText.competitors.titleHighlight}</span>
               </h2>
               <p className="text-xl text-blue-200/80 max-w-3xl mx-auto">
@@ -412,7 +427,12 @@ export default function HomePage() {
                 {uiText.applicationScenarios.badge}
               </span>
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                {uiText.applicationScenarios.title}
+                <span className="inline-block bg-gradient-to-br from-cyan-200 via-blue-100 to-cyan-300 text-transparent bg-clip-text drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)] filter brightness-150 contrast-125" style={{
+                  textShadow: '0 0 40px rgba(34, 211, 238, 0.6), 0 0 80px rgba(96, 165, 250, 0.4), 0 4px 12px rgba(0, 0, 0, 0.9)',
+                  WebkitTextStroke: '0.5px rgba(255, 255, 255, 0.3)'
+                }}>
+                  {uiText.applicationScenarios.title}
+                </span>
                 <span className="text-cyan-300"> {uiText.applicationScenarios.titleHighlight}</span>
               </h2>
               <p className="text-xl text-blue-200/80 max-w-3xl mx-auto">
@@ -576,7 +596,12 @@ export default function HomePage() {
                 {uiText.freeChannel.badge}
               </span>
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                {uiText.freeChannel.title}
+                <span className="inline-block bg-gradient-to-br from-cyan-200 via-blue-100 to-cyan-300 text-transparent bg-clip-text drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)] filter brightness-150 contrast-125" style={{
+                  textShadow: '0 0 40px rgba(34, 211, 238, 0.6), 0 0 80px rgba(96, 165, 250, 0.4), 0 4px 12px rgba(0, 0, 0, 0.9)',
+                  WebkitTextStroke: '0.5px rgba(255, 255, 255, 0.3)'
+                }}>
+                  {uiText.freeChannel.title}
+                </span>
                 <span className="text-cyan-300"> {uiText.freeChannel.titleHighlight}</span>
               </h2>
               <p className="text-xl text-blue-200/80 max-w-3xl mx-auto">
